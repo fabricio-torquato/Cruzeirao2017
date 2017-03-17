@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<style> .ui-layout-unit .ui-layout-unit-content { overflow: inherit;}</style>
+
+	<div style="width: 100%">
+		<div class="ui-g">
+			<div class="ui-g-3">
+				<img src="../images/logoindex.gif" alt="Campeonato 2017"
+					style="width: 100%; height: 200px" />
+			</div>
+			<div class="ui-g-9">
+				<div style="background-color: blue; width: 100%; height: 200px"><h:outputLabel value="ALGO"/></div>
+			</div>
+		</div>
+		<p:tabMenu activeIndex="#{param.i}">
+			<p:menuitem value="Campeonatos" url="index.xhtml"
+				icon="fa fa-soccer-ball-o">
+				<f:param name="i" value="0" />
+			</p:menuitem>
+
+			<p:menuitem value="Times" url="index.xhtml" icon="fa fa-group">
+				<f:param name="i" value="1" />
+			</p:menuitem>
+			
+			<p:menuitem value="Jogadores" url="index.xhtml" icon="fa fa-male">
+				<f:param name="i" value="2" />
+			</p:menuitem>
+			
+			<p:menuitem value="Entrar" url="index.xhtml" icon="fa fa-shield">
+				<f:param name="i" value="3" />
+			</p:menuitem>
+		</p:tabMenu>
+	</div>
+
+</ui:composition>
