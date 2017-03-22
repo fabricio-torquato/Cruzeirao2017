@@ -27,19 +27,30 @@
 		<div>
 			<p:toolbar>
 				<f:facet name="right">
-					<form action="login.xhtml">
-						<input type="submit" value="#{msg['pages.login.title']}"
-							class="login" style="margin-right: 20px" />
-					</form>
+					<p:row>
+
+						<form action="login.xhtml">
+
+							<input type="submit" value="#{msg['pages.login.login']}"
+								class="login" style="margin-right: 20px" />
+
+						</form>
+
+						<form action="cadastroUsuario.xhtml">
+							<p:column>
+								<input type="submit" value="#{msg['pages.login.signin']}"
+									class="login" style="margin-right: 20px" />
+							</p:column>
+						</form>
+					</p:row>
 				</f:facet>
 			</p:toolbar>
-
 		</div>
 
 		<div class="ui-g" style="margin-top: 20px">
 			<div class="ui-g-3">
 				<img src="../images/logoindex.gif" alt="Campeonato 2017"
-					style="width: 100%; height: 200px" />
+					style="width: 100%; height: 100px" />
 			</div>
 		</div>
 
@@ -51,15 +62,35 @@
 					<p:submenu label="#{msg['pages.comuns.headerfront.champion']}">
 						<p:menuitem
 							value="#{msg['pages.comuns.headerfront.champion.register']}"
-							url="index.xhtml">
+							url="cadastroCampeonato.xhtml">
 						</p:menuitem>
-						<p:menuitem value="#{msg['pages.comuns.headerfront.champion']}"
-							url="index.xhtml" />
-						<p:menuitem value="#{msg['pages.comuns.headerfront.champion']}"
-							url="index.xhtml" />
+						<p:menuitem
+							value="#{msg['pages.comuns.headerfront.champion.register']}"
+							url="cadastroCampeonato.xhtml" />
+						<p:menuitem
+							value="#{msg['pages.comuns.headerfront.champion.register']}"
+							url="cadastroCampeonato.xhtml" />
 					</p:submenu>
 				</p:column>
 			</p:submenu>
+
+			<p:submenu label="#{msg['pages.comuns.headerfront.category']}"
+				icon="fa fa-shield">
+				<p:column>
+					<p:submenu label="#{msg['pages.comuns.headerfront.category']}">
+						<p:menuitem
+							value="#{msg['pages.comuns.headerfront.category.register']}"
+							url="cadastroCategoria.xhtml" />
+						<p:menuitem
+							value="#{msg['pages.comuns.headerfront.category.register']}"
+							url="cadastroCategoria.xhtml" />
+						<p:menuitem
+							value="#{msg['pages.comuns.headerfront.category.register']}"
+							url="cadastroCategoria.xhtml" />
+					</p:submenu>
+				</p:column>
+			</p:submenu>
+
 
 			<p:submenu label="#{msg['pages.comuns.headerfront.time']}"
 				icon="fa fa-group">
@@ -76,26 +107,23 @@
 				</p:column>
 			</p:submenu>
 
-			<p:submenu label="#{msg['pages.comuns.headerfront.player']}"
+			<p:submenu label="#{msg['pages.comuns.headerfront.member']}"
 				icon="fa fa-male">
 				<p:column>
-					<p:submenu label="#{msg['pages.comuns.headerfront.player']}">
+					<p:submenu label="#{msg['pages.comuns.headerfront.member']}">
 						<p:menuitem
-							value="#{msg['pages.comuns.headerfront.player.register']}"
-							url="cadastroJogador.xhtml" />
-						<p:menuitem value="#{msg['pages.comuns.headerfront.player']}"
-							url="cadastroJogador.xhtml" />
-						<p:menuitem value="#{msg['pages.comuns.headerfront.player']}"
-							url="cadastroJogador.xhtml" />
+							value="#{msg['pages.comuns.headerfront.member.register']}"
+							url="cadastroMembro.xhtml" />
+						<p:menuitem
+							value="#{msg['pages.comuns.headerfront.member.register']}"
+							url="cadastroMembro.xhtml" />
+						<p:menuitem
+							value="#{msg['pages.comuns.headerfront.member.register']}"
+							url="cadastroMembro.xhtml" />
 					</p:submenu>
 				</p:column>
 			</p:submenu>
 
-			<p:submenu label="#{msg['pages.comuns.headerfront.entry']}"
-				icon="fa fa-shield">
-				<p:menuitem value="#{msg['pages.comuns.headerfront.entry']}"
-					url="index.xhtml" />
-			</p:submenu>
 
 		</p:megaMenu>
 	</div>

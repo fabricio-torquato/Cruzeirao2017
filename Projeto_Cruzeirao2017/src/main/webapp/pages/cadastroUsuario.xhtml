@@ -17,9 +17,15 @@
 						<h:outputText value="Digite seu nome de usuario:" />
 						<p:inputText type="text" placeholder="#{msg['pages.login.username']}" />
 						<h:outputText value="Digite sua senha: " />
-						 <p:password id="nonFeedback" placeholder="#{msg['pages.login.password']}" value="#{passwordView.password1}" />
+						<p:password placeholder="#{msg['pages.login.password']}" id="inlineFeedback" value="#{passwordView.password4}"
+							feedback="true" inline="true" />
+							<p:outputLabel value="#{msg['pages.login.roles']}" for="dd" />
+						<p:autoComplete id="dd" dropdown="true"
+							value="#{autoCompleteView.txt6}"
+							completeMethod="#{autoCompleteView.completeText}" />
+							
 					</h:panelGrid>
-					 <p:commandButton value="#{msg['pages.login.title']}" icon="ui-icon-check" />
+					 <p:commandButton value="#{msg['pages.login.salvar']}" icon="ui-icon-check" />
 					 <p:spacer />
 				</form>
 			</div>
