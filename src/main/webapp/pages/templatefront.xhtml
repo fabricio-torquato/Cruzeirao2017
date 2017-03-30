@@ -5,9 +5,21 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
+
+<link rel="stylesheet" type="text/css" href="../css/theme.css"/> 
+
 <f:view locale="#{localeBean.locale}">
+
+	<style type="text/css">
+#container {
+	position: relative;
+	margin: auto;
+}
+</style>
+
 	<h:head>
 		<meta charset="UTF-8" />
+		
 		<title><ui:insert name="title">
 				<h:outputLabel value="Cruzeirao2017 - Pagina Principal" />
 			</ui:insert></title>
@@ -18,15 +30,16 @@
 		<h:outputStylesheet name="grid/grid.css" library="primefaces" />
 
 		<p:layout id="globalLayout" fullPage="true">
-			<p:layoutUnit position="north" size="400px">
+
+			<p:layoutUnit position="north" size="200px" >
 				<ui:include src="comuns/headerfront.xhtml" />
 			</p:layoutUnit>
 
-			<p:layoutUnit position="center">
-				<ui:insert name="principal" />
+			<p:layoutUnit position="center" resizable="true">
+					<ui:insert name="principal"/>
 			</p:layoutUnit>
 
-			<p:layoutUnit position="south">
+			<p:layoutUnit position="south" >
 				<ui:include src="comuns/footer.xhtml" />
 			</p:layoutUnit>
 
