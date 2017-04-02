@@ -1,0 +1,91 @@
+<ui:composition template="templatefront.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.validarInscricao.title']}" />
+	</ui:define>
+
+	<ui:define name="principal">
+		<div class="principal" align="center">
+			<div class="container">
+				<p:panelGrid style="margin-top:20px; width: 100%;">
+					<f:facet name="header">
+						<p:row style="text-align: center;">
+							<p:column colspan="4">
+								<h:outputText value="#{msg['pages.validarInscricao.title']}" />
+							</p:column>
+						</p:row>
+
+						<p:row style="text-align: center;">
+							<p:column>
+								<h:outputText value="#{msg['pages.validarInscricao.pay']}" />
+							</p:column>
+
+							<p:column>
+								<h:outputText value="#{msg['pages.validarInscricao.time.name']}" />
+							</p:column>
+
+							<p:column>
+								<h:outputText value="#{msg['pages.validarInscricao.info']}" />
+							</p:column>
+
+							<p:column>
+								<h:outputText value="#{msg['pages.validarInscricao.validade']}" />
+							</p:column>
+						</p:row>
+					</f:facet>
+
+					<p:row style="text-align: center;">
+						<p:column>Pago</p:column>
+
+						<p:column>Betao</p:column>
+
+						<p:column rowspan="5">
+							<p:commandLink
+								value="#{msg['pages.validarInscricao.database']}"
+								onclick="PF('dlg').show();" type="button" />
+						</p:column>
+
+						<p:column>
+							<p:inputSwitch value="#{selectBooleanView.value1}" />
+						</p:column>
+					</p:row>
+				</p:panelGrid>
+				<p:commandButton value="#{msg['pages.cadastroCategoria.save']}"
+					icon="ui-icon-check" oncomplete="PF('dlg').show()"
+					style="margin-top:20px" />
+
+				<p:dialog header="#{msg['pages.verTimes.info']}" widgetVar="dlg"
+					dynamic="true">
+					<p:panel styleClass="customHeader">
+						<p:graphicImage url="/images/Real_Madrid.jpg" width="150px" />
+					</p:panel>
+					<p:panelGrid columns="2" style="text-align: center;">
+
+						<h:outputText value="#{msg['pages.verTimes.goalkeeper']}" />
+						<h:outputText value="Keylor Navas" />
+
+						<h:outputText value="#{msg['pages.verTimes.capitan']}" />
+						<h:outputText value="Cristiano Ronaldo" />
+
+					</p:panelGrid>
+					<br />
+					<h:outputText value="#{msg['pages.verTimes.players']}" />
+
+					<p:panelGrid columns="2" style="width: 100%; text-align: center;">
+
+						<h:outputText value="#{msg['pages.verTimes.name']}" />
+
+						<h:outputText value="Cristiano Ronaldo" />
+
+					</p:panelGrid>
+				</p:dialog>
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

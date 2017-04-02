@@ -1,0 +1,56 @@
+<ui:composition template="templatefront.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.cadastroTime.title']}" />
+	</ui:define>
+
+	<ui:define name="principal">
+		<div class="principal" align="center">
+			<div class="container">
+				<h:panelGrid columns="2" style="margin-bottom:10px;width: 100%;"
+					cellpadding="5">
+
+					<p:outputLabel value="#{msg['pages.cadastroTime.name']}" />
+					<p:outputLabel value="Betao" />
+
+					<p:outputLabel value="#{msg['pages.cadastroTime.responsible']}" />
+					<p:outputLabel value="Joao da Penha" />
+
+					<p:outputLabel value="Assistente Tecnico" />
+					<p:outputLabel value="Pedro Cabral" />
+
+					<p:outputLabel value="Preparador Fisico" />
+					<p:outputLabel value="Carlos Henrique" />
+
+					<p:outputLabel value="Escolha sua categoria" />
+					<p:autoComplete id="dd" dropdown="true"
+						value="#{autoCompleteView.txt6}"
+						completeMethod="#{autoCompleteView.completeText}" />
+
+					<p:outputLabel value="Escolha os jogadores dessa categoria" />
+					<p:selectCheckboxMenu id="multiple"
+						value="#{checkboxView.selectedCities2}" label="Jogadores"
+						multiple="true" filter="true" filterMatchMode="startsWith"
+						panelStyle="width:250px">
+						<f:selectItems value="#{checkboxView.cities}" />
+					</p:selectCheckboxMenu>
+					
+					<p:fileUpload value="#{fileUploadView.file}" mode="simple"
+						skinSimple="true" />
+						
+				</h:panelGrid>
+
+				<p:commandButton value="#{msg['pages.cadastroTime.save']}"
+					icon="ui-icon-check" oncomplete="PF('dlg').show()"
+					style="margin-top:10px;" />
+
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
