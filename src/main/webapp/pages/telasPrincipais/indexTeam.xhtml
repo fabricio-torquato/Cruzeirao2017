@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view locale="#{localeBean.locale}">
+	<h:head>
+		<meta charset="UTF-8" />
+		<title><h:outputText
+				value="#{msg['pages.telasPrincipais.index.title']}" /></title>
+		<h:outputStylesheet name="grid/grid.css" library="primefaces" />
+	</h:head>
+	<h:body>
+	<div style="width: 100%;height: 180px; background-color: blue; text-align: center;">
+								<h:outputText value="Tabela de Campeonatos - 2017"
+								style="font-weight: bold; font-size:50px;" />
+	</div>
+
+	<p:breadCrumb>
+    <p:menuitem value="Categories" url="#" />
+	</p:breadCrumb>
+	<div
+	 style="width: 70%; padding-left: 15%; padding-right: 15%">
+	
+		 <p:carousel value="1" headerText="TIME 1" var="car" itemStyle="text-align:center" responsive="true">
+					<p:panel styleClass="customHeader">
+						<p:graphicImage url="/images/ronaldo_cristiano.png" width="150px" />
+					</p:panel>
+					<p:panelGrid columns="2">
+
+						<h:outputText value="#{msg['pages.verJogadores.name']}" />
+						<h:outputText value="Cristiano Ronaldo" />
+
+						<h:outputText value="#{msg['pages.verJogadores.team']}" />
+						<h:outputText value="Real Madrid" />
+
+						<h:outputText value="#{msg['pages.verJogadores.position']}" />
+						<h:outputText value="Attacks" />
+
+						<h:outputText value="#{msg['pages.verJogadores.date']}" />
+						<h:outputText value="5 de fevereiro de 1985" />
+
+					</p:panelGrid>
+ 
+        <f:facet name="footer">
+                Numero de Jogadores TAL
+        </f:facet>
+    </p:carousel>
+				 <p:carousel value="#" headerText="TIME 2" var="car" itemStyle="text-align:center" responsive="true">
+					<p:panel styleClass="customHeader">
+						<p:graphicImage url="/images/ronaldo_cristiano.png" width="150px" />
+					</p:panel>
+					<p:panelGrid columns="2">
+
+						<h:outputText value="#{msg['pages.verJogadores.name']}" />
+						<h:outputText value="Cristiano Ronaldo" />
+
+						<h:outputText value="#{msg['pages.verJogadores.team']}" />
+						<h:outputText value="Real Madrid" />
+
+						<h:outputText value="#{msg['pages.verJogadores.position']}" />
+						<h:outputText value="Attacks" />
+
+						<h:outputText value="#{msg['pages.verJogadores.date']}" />
+						<h:outputText value="5 de fevereiro de 1985" />
+
+					</p:panelGrid>
+ 
+        <f:facet name="footer">
+                Numero de Jogadores TAL
+        </f:facet>
+    </p:carousel>
+	</div>	
+	</h:body>
+</f:view>
+</html>
+
+
