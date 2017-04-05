@@ -13,11 +13,13 @@
 		<div class="principal" align="center">
 			<div class="container">
 				<form class="form" action="index.xhtml">
-					<h:panelGrid columns="3" style="margin-bottom:10px; width: 100%;" cellpadding="5">
+					<h:panelGrid columns="3" style="margin-bottom:10px; width: 100%;"
+						cellpadding="5">
 
 						<p:outputLabel value="#{msg['pages.cadastroCampeonato.name']}"
 							for="acSimple" />
-						<p:autoComplete id="acSimple" placeholder="#{msg['pages.cadastroCampeonato.placeholder.name']}"
+						<p:autoComplete id="acSimple"
+							placeholder="#{msg['pages.cadastroCampeonato.placeholder.name']}"
 							value="#{autoCompleteView.txt1}"
 							completeMethod="#{autoCompleteView.completeText}" />
 						<br />
@@ -26,16 +28,20 @@
 							value="#{msg['pages.cadastroCampeonato.period.camp']}"
 							for="acSimple" />
 						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.begin']}" mask="99/99/9999" />
-						<p:inputMask id="date" value="#{maskView.date}" placeholder="#{msg['pages.cadastroCampeonato.placeholder.end']}"
+							placeholder="#{msg['pages.cadastroCampeonato.placeholder.begin']}"
+							mask="99/99/9999" />
+						<p:inputMask id="date" value="#{maskView.date}"
+							placeholder="#{msg['pages.cadastroCampeonato.placeholder.end']}"
 							mask="99/99/9999" />
 
 						<p:outputLabel
 							value="#{msg['pages.cadastroCampeonato.period.register']}"
 							for="acSimple" />
 						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.begin']}"  mask="99/99/9999" />
-						<p:inputMask id="date" value="#{maskView.date}" placeholder="#{msg['pages.cadastroCampeonato.placeholder.end']}" 
+							placeholder="#{msg['pages.cadastroCampeonato.placeholder.begin']}"
+							mask="99/99/9999" />
+						<p:inputMask id="date" value="#{maskView.date}"
+							placeholder="#{msg['pages.cadastroCampeonato.placeholder.end']}"
 							mask="99/99/9999" />
 
 						<p:outputLabel value="#{msg['pages.cadastroCampeonato.value']}"
@@ -47,7 +53,8 @@
 							value="#{msg['pages.cadastroCampeonato.amount.mim.player']}"
 							for="acSimple" />
 						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.mim']}"  mask="99" />
+							placeholder="#{msg['pages.cadastroCampeonato.placeholder.mim']}"
+							mask="99" />
 						<br />
 
 
@@ -55,19 +62,34 @@
 							value="#{msg['pages.cadastroCampeonato.amount.max.player']}"
 							for="acSimple" />
 						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.max']}" mask="99" />
+							placeholder="#{msg['pages.cadastroCampeonato.placeholder.max']}"
+							mask="99" />
 						<br />
 
 						<p:outputLabel
 							value="#{msg['pages.cadastroCampeonato.amount.mim.team']}"
 							for="acSimple" />
 						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.max']}"  mask="99" />
-					</h:panelGrid>
+							placeholder="#{msg['pages.cadastroCampeonato.placeholder.max']}"
+							mask="99" />
+						<br />
+						
+						<p:outputLabel value="Choose field locations" />
+						<p:selectCheckboxMenu id="multiple"
+							value="#{checkboxView.selectedCities2}" label="Field player"
+							multiple="true" filter="true" filterMatchMode="startsWith"
+							panelStyle="width:250px">
+							<f:selectItems value="#{checkboxView.cities}" />
+						</p:selectCheckboxMenu>
+						<br />
+						
+						<p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true"/>
 					
+					</h:panelGrid>
+
 					<p:commandButton value="#{msg['pages.cadastroCampeonato.save']}"
-							icon="ui-icon-check" oncomplete="PF('dlg').show()"
-							style="margin-top:10px;" />
+						icon="ui-icon-check" oncomplete="PF('dlg').show()"
+						style="margin-top:10px;" />
 				</form>
 			</div>
 		</div>

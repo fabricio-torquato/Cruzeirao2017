@@ -13,23 +13,32 @@
 		<div class="principal" align="center">
 			<div class="container">
 				<form class="form" action="index.xhtml">
-					<h:panelGrid columns="2" style="margin-bottom:20px;width: 100%;" cellpadding="5" >
-					
-						<h:outputText value="Digite seu email:" />
-						<p:inputText type="text" placeholder="#{msg['pages.login.username']}" />
-						
-						<h:outputText value="Digite sua senha: " />
-						<p:password placeholder="#{msg['pages.login.password']}" id="inlineFeedback" value="#{passwordView.password4}"
+					<h:panelGrid columns="2" style="margin-bottom:20px;width: 100%;"
+						cellpadding="5">
+
+						<h:outputText value="Enter you name:" />
+						<p:inputText type="text" placeholder="Name" />
+
+						<h:outputText value="Enter you email:" />
+						<p:inputText type="text"
+							placeholder="#{msg['pages.login.username']}" />
+
+						<h:outputText value="Enter you passwaord: " />
+						<p:password placeholder="#{msg['pages.login.password']}"
+							id="inlineFeedback" value="#{passwordView.password4}"
 							feedback="true" inline="true" />
-							<p:outputLabel value="#{msg['pages.login.roles']}" for="dd" />
-					
+
+						<p:outputLabel value="#{msg['pages.login.roles']}" />
 						<p:autoComplete id="dd" dropdown="true"
 							value="#{autoCompleteView.txt6}"
 							completeMethod="#{autoCompleteView.completeText}" />
-							
+
+
+
 					</h:panelGrid>
-					 <p:commandButton value="#{msg['pages.login.salvar']}" icon="ui-icon-check" />
-					 <p:spacer />
+					<p:commandButton value="#{msg['pages.login.salvar']}"
+						icon="ui-icon-check" />
+					<p:spacer />
 				</form>
 			</div>
 		</div>
