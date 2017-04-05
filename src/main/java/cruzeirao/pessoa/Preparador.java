@@ -26,10 +26,4 @@ public class Preparador extends Membro{
 		this.crefito = crefito;
 	}
 
-	public Preparador(int rg, Date nascimento,Time time,int crefito) {
-		super(rg, nascimento);
-		this.time=time;
-		this.crefito=crefito;
-	}
-	
 }

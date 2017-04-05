@@ -19,8 +19,5 @@ public class Diretor extends Membro{
 	{
 		times.add(time);
 	}
-	public Diretor(int rg, Date nascimento) {
-		super(rg, nascimento);
-		times= new ArrayList<Time>();
-	}
+
 }

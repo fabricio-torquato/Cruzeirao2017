@@ -3,7 +3,6 @@ package cruzeirao.campeonato;
 import java.util.ArrayList;
 import java.util.List;
 
-import cruzeirao.pessoa.Tecnico;
 
 public class Categoria {
 	private int idade_min;
@@ -33,16 +32,5 @@ public class Categoria {
 	}
 	public void setTimes(List<Inscricao> times) {
 		this.times = times;
-	}
-	public void addTime(Time time,Tecnico tecnico)
-	{
-		times.add(new Inscricao(time,tecnico,this));
-	}
-	public Categoria(int idade,String sexo,int min)
-	{
-		this.idade_min=idade;
-		this.sexo=sexo;
-		this.min_time=min;
-		times=new ArrayList<Inscricao>();
 	}
 }

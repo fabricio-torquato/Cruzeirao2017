@@ -8,8 +8,6 @@ public class Jogador extends Membro {
 	private boolean participando;
 	private Inscricao time;	
 	
-	
-	
 	public boolean isParticipando() {
 		return participando;
 	}
@@ -25,12 +23,4 @@ public class Jogador extends Membro {
 	public void setTime(Inscricao time) {
 		this.time = time;
 	}
-
-
-
-	public Jogador(int rg, Date nascimento) {
-		super(rg, nascimento);
-	}
-
-
 }

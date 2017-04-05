@@ -18,9 +18,20 @@
 								style="font-weight: bold; font-size:50px;" />
 	</div>
 
-	<p:breadCrumb>
-    <p:menuitem value="Categories" url="#" />
-	</p:breadCrumb>
+<h:form>  
+    <p:menubar>
+            <p:menuitem value="Inicio" icon="fa fa-home"  url="../telasPrincipais/index.xhtml"/>
+            <p:menuitem value="Times" icon="fa fa-users"  url="../telasPrincipais/indexTeam.xhtml" />
+			<p:menuitem icon="fa fa-street-view" value="Jogadores" url="#" />
+
+        <f:facet name="options">
+
+           <p:commandButton type="button" onclick="PF('dlgLogin').show();"
+						value="Login" icon="ui-icon-extlink"/>
+            <p:commandButton type="button" value="Register" icon="ui-icon-extlink" />
+        </f:facet>
+    </p:menubar>
+</h:form>
 	<div
 	 style="width: 70%; padding-left: 15%; padding-right: 15%">
 	
@@ -73,6 +84,28 @@
         </f:facet>
     </p:carousel>
 	</div>	
+	
+	
+	<p:dialog header="Login" widgetVar="dlgLogin" modal="true">
+			<div class="container">
+				<form class="form" action="index.xhtml">
+					<h:panelGrid columns="1"
+						style="margin-bottom:20px;width: 100%; text-align: center;"
+						cellpadding="5">
+						<h:outputText value="Digite seu email: " />
+						<p:inputText type="text"
+							placeholder="#{msg['pages.login.username']}" />
+						<h:outputText value="Digite sua senha: " />
+						<p:password id="nonFeedback"
+							placeholder="#{msg['pages.login.password']}"
+							value="#{passwordView.password1}" />
+					</h:panelGrid>
+					<p:commandButton value="#{msg['pages.login.title']}"
+						icon="ui-icon-check" />
+					<p:spacer />
+				</form>
+			</div>
+		</p:dialog>
 	</h:body>
 </f:view>
 </html>

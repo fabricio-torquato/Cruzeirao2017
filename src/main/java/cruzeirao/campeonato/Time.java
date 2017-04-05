@@ -3,25 +3,34 @@ package cruzeirao.campeonato;
 import java.util.ArrayList;
 import java.util.List;
 
-import cruzeirao.pessoa.Auxiliar;
+import cruzeirao.pessoa.Assistente;
 import cruzeirao.pessoa.Diretor;
 import cruzeirao.pessoa.Preparador;
 
 public class Time {
-	Diretor diretor;
-	Auxiliar auxiliar;
-	Preparador preparador;
-	List<Inscricao> atual;
+	private Diretor diretor;
+	private Assistente auxiliar;
+	private Preparador preparador;
+	private List<Inscricao> atual;
+	private String nome;
+	
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 	public Diretor getDiretor() {
 		return diretor;
 	}
 	public void setDiretor(Diretor diretor) {
 		this.diretor = diretor;
 	}
-	public Auxiliar getAuxiliar() {
+	public Assistente getAuxiliar() {
 		return auxiliar;
 	}
-	public void setAuxiliar(Auxiliar auxiliar) {
+	public void setAuxiliar(Assistente auxiliar) {
 		this.auxiliar = auxiliar;
 	}
 	public Preparador getPreparador() {

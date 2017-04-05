@@ -1,14 +1,30 @@
 package cruzeirao.pessoa;
 
+import java.awt.Image;
 import java.util.Date;
 
 public class Membro {
-	private int rg;
+	private String rg;
 	private Date nascimento;
-	public int getRg() {
+	private String cpf; 
+	private Image fotoMembro;
+
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		cpf = cpf;
+	}
+	public Image getFotoMembro() {
+		return fotoMembro;
+	}
+	public void setFotoMembro(Image fotoMembro) {
+		fotoMembro = fotoMembro;
+	}
+	public String getRg() {
 		return rg;
 	}
-	public void setRg(int rg) {
+	public void setRg(String rg) {
 		this.rg = rg;
 	}
 	public Date getNascimento() {
@@ -16,10 +32,5 @@ public class Membro {
 	}
 	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
-	}
-	public Membro (int rg,Date nascimento)
-	{
-		this.rg=rg;
-		this.nascimento= nascimento;
 	}
 }

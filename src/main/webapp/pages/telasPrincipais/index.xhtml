@@ -13,14 +13,29 @@
 		<h:outputStylesheet name="grid/grid.css" library="primefaces" />
 	</h:head>
 	<h:body>
-	<div style="width: 100%;height: 180px; background-color: blue; text-align: center;">
-								<h:outputText value="Tabela de Campeonatos - 2017"
-								style="font-weight: bold; font-size:50px;" />
-	</div>
+		<div
+			style="width: 100%; height: 180px; background-color: blue; text-align: center;">
+			<h:outputText value="Tabela de Campeonatos - 2017"
+				style="font-weight: bold; font-size:50px;" />
+		</div>
 
-	<p:breadCrumb>
-    <p:menuitem value="Categories" url="#" />
-	</p:breadCrumb>
+		<h:form>
+			<p:menubar>
+				<p:menuitem value="Inicio" icon="fa fa-home"
+					url="../telasPrincipais/index.xhtml" />
+				<p:menuitem value="Times" icon="fa fa-users"
+					url="../telasPrincipais/indexTeam.xhtml" />
+				<p:menuitem icon="fa fa-street-view" value="Jogadores" url="#" />
+
+				<f:facet name="options">
+					<p:commandButton type="button" onclick="PF('dlgLogin').show();"
+						value="Login" icon="ui-icon-extlink">
+					</p:commandButton>
+					<p:commandButton type="button" value="Register"
+						icon="ui-icon-extlink" />
+				</f:facet>
+			</p:menubar>
+		</h:form>
 		<!-- Colocar Repeat quando estiver guardadndo e carregando Campeonatos -->
 		<h:form id="form">
 			<div class="ui-g"
@@ -31,7 +46,7 @@
 				</div>
 				<div class="ui-g-9">
 					<div class="ui-g" style="height: 100%">
-						<div class="ui-g-6" >
+						<div class="ui-g-6">
 							<h:outputText value="Cruzeirão - 2017"
 								style="font-weight: bold; font-size:30px" />
 							<br />
@@ -48,8 +63,10 @@
 							<h:outputText value="Região: Sorocaba"
 								style="font-weight: bold; font-size:20px" />
 							<br />
-							<p:commandButton icon="ui-icon-calculator" actionListener="#{buttonView.buttonAction}" ajax="false" />
- 							<p:commandButton icon="ui-icon-key" value="Chaves" type="button" onclick="PF('dlg2').show();" />
+							<p:commandButton icon="ui-icon-calculator"
+								actionListener="#{buttonView.buttonAction}" ajax="false" />
+							<p:commandButton icon="ui-icon-key" value="Chaves" type="button"
+								onclick="PF('dlg2').show();" />
 						</div>
 					</div>
 				</div>
@@ -63,7 +80,7 @@
 				</div>
 				<div class="ui-g-9">
 					<div class="ui-g" style="height: 100%">
-						<div class="ui-g-6" >
+						<div class="ui-g-6">
 							<h:outputText value="Cruzeirão - 2017"
 								style="font-weight: bold; font-size:30px" />
 							<br />
@@ -80,8 +97,10 @@
 							<h:outputText value="Região: Sorocaba"
 								style="font-weight: bold; font-size:20px" />
 							<br />
-							<p:commandButton value="Times" icon="ui-icon-calculator" actionListener="#{buttonView.buttonAction}" ajax="false" />
- 							<p:commandButton value="Chave" icon="ui-icon-key" actionListener="#{buttonView.buttonAction}" ajax="false" />
+							<p:commandButton value="Times" icon="ui-icon-calculator"
+								actionListener="#{buttonView.buttonAction}" ajax="false" />
+							<p:commandButton value="Chave" icon="ui-icon-key"
+								actionListener="#{buttonView.buttonAction}" ajax="false" />
 						</div>
 					</div>
 				</div>
@@ -90,11 +109,33 @@
 		</h:form>
 
 		<!-- Modal Chaveamento -->
-				<p:dialog header="Chaveamento Campeonato: tal" widgetVar="dlg2"
-					modal="true">
-					<img src="../../images/chaveamentoExemplo.jpg" alt="Cruzeirão 2017" style="width: 640px; height: 500px;"/>
-				</p:dialog>
-		
+		<p:dialog header="Chaveamento Campeonato: tal" widgetVar="dlg2"
+			modal="true">
+			<img src="../../images/chaveamentoExemplo.jpg" alt="Cruzeirão 2017"
+				style="width: 640px; height: 500px;" />
+		</p:dialog>
+		<p:dialog header="Login" widgetVar="dlgLogin" modal="true">
+			<div class="container">
+				<form class="form" action="index.xhtml">
+					<h:panelGrid columns="1"
+						style="margin-bottom:20px;width: 100%; text-align: center;"
+						cellpadding="5">
+						<h:outputText value="Digite seu email: " />
+						<p:inputText type="text"
+							placeholder="#{msg['pages.login.username']}" />
+						<h:outputText value="Digite sua senha: " />
+						<p:password id="nonFeedback"
+							placeholder="#{msg['pages.login.password']}"
+							value="#{passwordView.password1}" />
+					</h:panelGrid>
+					<p:commandButton value="#{msg['pages.login.title']}"
+						icon="ui-icon-check" />
+					<p:spacer />
+				</form>
+			</div>
+
+
+		</p:dialog>
 	</h:body>
 </f:view>
 </html>

@@ -7,7 +7,19 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String senha;
-	List<Membro> papeis;
+	private List<Membro> papeis;
+	private String acessLevel;
+	
+	
+	public String getAcessLevel() {
+		return acessLevel;
+	}
+	public void setAcessLevel(String acessLevel) {
+		this.acessLevel = acessLevel;
+	}
+	public void setPapeis(List<Membro> papeis) {
+		this.papeis = papeis;
+	}
 	public String getNome() {
 		return nome;
 	}
