@@ -20,19 +20,19 @@
 	</h:head>
 	<h:body>
 		<p:layout id="globalLayout" fullPage="true">
-<div class="background">
-			<p:layoutUnit position="north">
-				<ui:include src="comuns/headerfront.xhtml" />
-			</p:layoutUnit>
+			<div class="background">
+				<p:layoutUnit position="north">
+					<ui:include src="comuns/headerfront.xhtml" />
+				</p:layoutUnit>
 
-			<p:layoutUnit position="center" resizable="true">
+				<p:layoutUnit position="center" resizable="true">
 					<ui:insert name="principal" />
-			</p:layoutUnit>
+				</p:layoutUnit>
 
-			<p:layoutUnit position="south">
+				<p:layoutUnit position="south">
 					<ui:include src="comuns/footer.xhtml" />
-			</p:layoutUnit>
-</div>
+				</p:layoutUnit>
+			</div>
 		</p:layout>
 	</h:body>
 </f:view>
