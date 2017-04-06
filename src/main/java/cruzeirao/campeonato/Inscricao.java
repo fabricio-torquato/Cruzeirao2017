@@ -12,6 +12,15 @@ public class Inscricao {
 	private Categoria categoria;
 	private boolean validação;
 	private List<Jogo> jogos;
+	private boolean pagamento;
+	
+	public boolean isPagamento() {
+		return pagamento;
+	}
+
+	public void setPagamento(boolean pagamento) {
+		this.pagamento = pagamento;
+	}
 
 	public Time getTime() {
 		return time;
