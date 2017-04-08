@@ -4,7 +4,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" lang="#{localeBean.language}">
+	xmlns:p="http://primefaces.org/ui" 
+	lang="#{localeBean.language}">
 
 <link rel="stylesheet" type="text/css" href="../css/theme.css" />
 <h:outputStylesheet name="grid/grid.css" library="primefaces" />
@@ -20,19 +21,19 @@
 	</h:head>
 	<h:body>
 		<p:layout id="globalLayout" fullPage="true">
-<div class="background">
-			<p:layoutUnit position="north">
-				<ui:include src="comuns/headerfront.xhtml" />
-			</p:layoutUnit>
+			<div class="background">
+				<p:layoutUnit position="north">
+					<ui:include src="comuns/headerfront.xhtml"/>
+				</p:layoutUnit>
 
-			<p:layoutUnit position="center" resizable="true">
+				<p:layoutUnit position="center" resizable="true">
 					<ui:insert name="principal" />
-			</p:layoutUnit>
+				</p:layoutUnit>
 
-			<p:layoutUnit position="south">
+				<p:layoutUnit position="south">
 					<ui:include src="comuns/footer.xhtml" />
-			</p:layoutUnit>
-</div>
+				</p:layoutUnit>
+			</div>
 		</p:layout>
 	</h:body>
 </f:view>
