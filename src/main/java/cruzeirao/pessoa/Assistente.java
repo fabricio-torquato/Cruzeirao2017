@@ -1,8 +1,5 @@
 package cruzeirao.pessoa;
 
-
-import java.util.Date;
-
 import cruzeirao.campeonato.Time;
 
 public class Assistente extends Membro{

@@ -88,20 +88,39 @@
 						value="#{msg['pages.comuns.headerfront.field.register']}" /></a>
 			</div>
 		</li>
-		
+
+		<li class="dropdown">
+
+			<button class="dropbtn">
+				<p:outputLabel value="Matches" />
+				<p:commandButton icon="fa fa-sitemap"></p:commandButton>
+			</button>
+
+			<div class="dropdown-content">
+				<a href="validarPartida.xhtml"><p:outputLabel
+						value="validar partida" /></a> 
+				<a href="validarPartida.xhtml"><p:outputLabel
+						value="validar partida" /></a> <a
+					href="validarTabelaCampeonato.xhtml"><p:outputLabel
+						value="Validar tabela do campeonato" /></a>
+			</div>
+		</li>
+
 		<li class="bar"><a href="linguagem.xhtml"> <i
 				class="fa fa-bars" />
 		</a></li>
-		
-		<li class="bar"><a href="login.xhtml"> <p:outputLabel
+
+		<li class="bar"><a href="perfil.xhtml"> <p:outputLabel
 					value="Cristiano Ronaldo" />
 		</a></li>
 	</ul>
 
 	<div style="padding-top: 40px;" align="center">
 		<div class="ui-g-2" style="position: relative; left: 40%;">
-			<img src="../images/cruzeirao2017.jpg" alt="Campeonato 2017"
+			<a href="../pages/telasPrincipais/index.xhtml"> <img
+				src="../images/cruzeirao2017.jpg" alt="Campeonato 2017"
 				style="height: 150px;" />
+			</a>
 		</div>
 	</div>
 

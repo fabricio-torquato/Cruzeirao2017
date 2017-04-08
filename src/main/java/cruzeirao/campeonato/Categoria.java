@@ -1,6 +1,5 @@
 package cruzeirao.campeonato;
 
-import java.util.ArrayList;
 import java.util.List;
 
 

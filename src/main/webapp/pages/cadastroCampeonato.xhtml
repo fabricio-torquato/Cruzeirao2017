@@ -66,15 +66,7 @@
 							mask="99" />
 						<br />
 
-						<p:outputLabel
-							value="#{msg['pages.cadastroCampeonato.amount.mim.team']}"
-							for="acSimple" />
-						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.max']}"
-							mask="99" />
-						<br />
-						
-						<p:outputLabel value="Choose field locations" />
+						<p:outputLabel value="Choice field locations" />
 						<p:selectCheckboxMenu id="multiple"
 							value="#{checkboxView.selectedCities2}" label="Field player"
 							multiple="true" filter="true" filterMatchMode="startsWith"
@@ -82,14 +74,16 @@
 							<f:selectItems value="#{checkboxView.cities}" />
 						</p:selectCheckboxMenu>
 						<br />
-						
-						<p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true"/>
-					
+						<p:outputLabel value="Choice imagem of championship" />
+						<p:fileUpload value="#{fileUploadView.file}" mode="simple"
+							skinSimple="true" />
+						<br />
 					</h:panelGrid>
 
 					<p:commandButton value="#{msg['pages.cadastroCampeonato.save']}"
 						icon="ui-icon-check" oncomplete="PF('dlg').show()"
-						style="margin-top:10px;" />
+						style="margin-top:0px;" />
+
 				</form>
 			</div>
 		</div>

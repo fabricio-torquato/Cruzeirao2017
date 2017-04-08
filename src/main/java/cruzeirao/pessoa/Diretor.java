@@ -1,8 +1,6 @@
 package cruzeirao.pessoa;
 
 import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Diretor extends Membro{

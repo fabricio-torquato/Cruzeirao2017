@@ -43,8 +43,10 @@
 							placeholder="Date birth"
 							mask="99/99/9999" />
 
+						<p:outputLabel value="Choose a picture of you" />
 						<p:fileUpload value="#{fileUploadView.file}" mode="simple"
 							skinSimple="true" />
+							
 					</h:panelGrid>
 					<p:commandButton value="#{msg['pages.cadastroMembro.save']}"
 						icon="ui-icon-check" oncomplete="PF('dlg').show()"

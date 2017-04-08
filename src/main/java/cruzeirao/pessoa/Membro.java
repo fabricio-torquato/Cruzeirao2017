@@ -13,13 +13,13 @@ public class Membro {
 		return cpf;
 	}
 	public void setCpf(String cpf) {
-		cpf = cpf;
+		this.cpf = cpf;
 	}
 	public Image getFotoMembro() {
 		return fotoMembro;
 	}
 	public void setFotoMembro(Image fotoMembro) {
-		fotoMembro = fotoMembro;
+		this.fotoMembro = fotoMembro;
 	}
 	public String getRg() {
 		return rg;

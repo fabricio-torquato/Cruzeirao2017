@@ -1,0 +1,131 @@
+<ui:composition template="templatefront.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.validarInscricao.title']}" />
+	</ui:define>
+
+	<ui:define name="principal">
+		<div class="principal" align="center">
+			<div class="tree" align="center" style="overflow-x: scroll;overflow-y:hidden; height:500px;">
+				<p:scrollPanel mode="native" style="width:150%;" >
+					<ul>
+						<li><a onclick="PF('dlgMatch').show()">Final</a>
+							<ul>
+								<li><a onclick="PF('dlgMatch').show()">Semi-Final</a>
+									<ul>
+										<li><a onclick="PF('dlgMatch').show()">Quartas de Finais</a>
+											<ul>
+												<li><a href="validarPartida.xhtml">1º Jogo</a>
+													<ul>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+													</ul></li>
+												<li><a href="validarPartida.xhtml">1º Jogo</a>
+													<ul>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+													</ul></li>
+											</ul></li>
+										<li><a onclick="PF('dlgMatch').show()">Quartas de Finais</a>
+											<ul>
+												<li><a href="validarPartida.xhtml">1º Jogo</a>
+													<ul>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+													</ul></li>
+												<li><a href="validarPartida.xhtml">1º Jogo</a>
+													<ul>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+													</ul></li>
+											</ul></li>
+									</ul></li>
+								<li><a onclick="PF('dlgMatch').show()">Semi-Final</a>
+									<ul>
+										<li><a onclick="PF('dlgMatch').show()">Quartas de Finais</a>
+											<ul>
+												<li><a href="validarPartida.xhtml">1º Jogo</a>
+													<ul>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+													</ul></li>
+												<li><a href="validarPartida.xhtml">1º Jogo</a>
+													<ul>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+													</ul></li>
+											</ul></li>
+										<li><a onclick="PF('dlgMatch').show()">Quartas de Finais</a>
+											<ul>
+												<li><a href="validarPartida.xhtml">1º Jogo</a>
+													<ul>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+													</ul></li>
+												<li><a href="validarPartida.xhtml">1º Jogo</a>
+													<ul>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+														<li><a onclick="PF('dlgTime').show()">Time</a></li>
+													</ul></li>
+											</ul></li>
+									</ul></li>
+							</ul></li>
+					</ul>
+
+				</p:scrollPanel>
+			</div>
+			<p:commandButton value="#{msg['pages.cadastroCategoria.save']}"
+				icon="ui-icon-check" oncomplete="PF('dlgtime').show()"
+				style="margin-top:20px" />
+		</div>
+
+		<p:dialog header="#{msg['pages.verTimes.info']}" widgetVar="dlgTime"
+			dynamic="true">
+			<div align="center">
+				<p:panel styleClass="customHeader">
+					<p:graphicImage url="/images/Real_Madrid.jpg" width="150px" />
+				</p:panel>
+				<p:panelGrid columns="2" style="text-align: center;">
+
+					<h:outputText value="#{msg['pages.verTimes.goalkeeper']}" />
+					<h:outputText value="Keylor Navas" />
+
+					<h:outputText value="#{msg['pages.verTimes.capitan']}" />
+					<h:outputText value="Cristiano Ronaldo" />
+
+				</p:panelGrid>
+				<br />
+				<h:outputText value="#{msg['pages.verTimes.players']}" />
+
+				<p:panelGrid columns="2" style="width: 100%; text-align: center;">
+
+					<h:outputText value="#{msg['pages.verTimes.name']}" />
+
+					<h:outputText value="Cristiano Ronaldo" />
+
+				</p:panelGrid>
+			</div>
+		</p:dialog>
+
+		<p:dialog header="Information of match" widgetVar="dlgMatch"
+			dynamic="true">
+			<div align="center">
+
+				<p:panelGrid columns="2" style="text-align: center;">
+
+					<h:outputText value="Team 1" />
+					<h:outputText value="Real Madrid" />
+
+					<h:outputText value="Team 2" />
+					<h:outputText value="Barcelona" />
+
+				</p:panelGrid>
+			</div>
+		</p:dialog>
+	</ui:define>
+</ui:composition>

@@ -15,7 +15,7 @@
 				<p:panelGrid style="margin-top:20px; width: 100%;">
 					<f:facet name="header">
 						<p:row style="text-align: center;">
-							<p:column colspan="4">
+							<p:column colspan="5">
 								<h:outputText value="#{msg['pages.validarInscricao.title']}" />
 							</p:column>
 						</p:row>
@@ -34,6 +34,10 @@
 							</p:column>
 
 							<p:column>
+								<h:outputText value="Cabeça de chave" />
+							</p:column>
+							
+							<p:column>
 								<h:outputText value="#{msg['pages.validarInscricao.validade']}" />
 							</p:column>
 						</p:row>
@@ -49,12 +53,17 @@
 								value="#{msg['pages.validarInscricao.database']}"
 								onclick="PF('dlg').show();" type="button" />
 						</p:column>
-
+						
+						<p:column>
+							<p:inputSwitch value="#{selectBooleanView.value1}" />
+						</p:column>
+						
 						<p:column>
 							<p:inputSwitch value="#{selectBooleanView.value1}" />
 						</p:column>
 					</p:row>
 				</p:panelGrid>
+				
 				<p:commandButton value="#{msg['pages.cadastroCategoria.save']}"
 					icon="ui-icon-check" oncomplete="PF('dlg').show()"
 					style="margin-top:20px" />
@@ -87,5 +96,6 @@
 
 			</div>
 		</div>
+		
 	</ui:define>
 </ui:composition>

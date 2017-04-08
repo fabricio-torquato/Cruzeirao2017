@@ -1,7 +1,5 @@
 package cruzeirao.pessoa;
 
-import java.util.Date;
-
 import cruzeirao.campeonato.Inscricao;
 
 public class Jogador extends Membro {

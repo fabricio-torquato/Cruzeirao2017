@@ -10,25 +10,24 @@
 	</ui:define>
 
 	<ui:define name="principal">
-		<div class="principal" align="center">
+		<div class="principal" align="center" style="margin-top: 50px;">
+
+			<p:outputLabel value="#{msg['pages.linguagem.lingua']} " />
 			<h:form>
 				<h:panelGrid
-					style="margin-bottom:20px;width: 100%;text-align: center;"
-					columns="1" cellpadding="5">
+					style="margin-bottom:70px;margin-top:70px;width: 50%;text-align: center;"
+					columns="2" cellpadding="5">
 
-
-					<p:column>
-						<p:outputLabel value="#{msg['pages.linguagem.lingua']} " />
-					</p:column>
-					<p:column>
-						<p:selectOneMenu value="#{localeBean.language}"
-							onchange="submit()">
-							<f:selectItem itemValue="en" itemLabel="English" />
-							<f:selectItem itemValue="pt" itemLabel="Português" />
-						</p:selectOneMenu>
-					</p:column>
-
+					<p:graphicImage url="/images/bandeira_eua.jpg" width="150px" />
+					<p:graphicImage url="/images/bandeira_br.jpg" width="150px" />
 				</h:panelGrid>
+
+				<p:selectOneMenu value="#{localeBean.language}" onchange="submit()">
+					<f:selectItem itemValue="en" itemLabel="English" />
+					<f:selectItem itemValue="pt" itemLabel="Português" />
+				</p:selectOneMenu>
+
+
 			</h:form>
 		</div>
 	</ui:define>

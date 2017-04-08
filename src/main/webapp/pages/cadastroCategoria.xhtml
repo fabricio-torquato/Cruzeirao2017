@@ -43,6 +43,14 @@
 						<p:outputLabel value="#{msg['pages.cadastroCategoria.newteam']}"
 							for="acSimple" />
 						<p:inputSwitch value="#{selectBooleanView.value1}" />
+						
+						<p:outputLabel
+							value="#{msg['pages.cadastroCampeonato.amount.mim.team']}"
+							for="acSimple" />
+						<p:inputMask id="date" value="#{maskView.date}"
+							placeholder="#{msg['pages.cadastroCampeonato.placeholder.max']}"
+							mask="99" />
+							
 					</h:panelGrid>
 					<p:commandButton value="#{msg['pages.cadastroCategoria.save']}"
 							icon="ui-icon-check" oncomplete="PF('dlg').show()" style="margin:20px"/>
