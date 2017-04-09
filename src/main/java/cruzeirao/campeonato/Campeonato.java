@@ -20,7 +20,7 @@ public class Campeonato {
 	private int max_time;
 	private List<Categoria> categorias;
 	private List<Local> locais;
-	private Image logoCampeonato;
+	private String logoCampeonato;
 
 	public void addLocal(Local local) {
 		locais.add(local);
@@ -106,11 +106,11 @@ public class Campeonato {
 		this.max_jogador = max_jogador;
 	}
 
-	public Image getLogoCampeonato() {
+	public String getLogoCampeonato() {
 		return logoCampeonato;
 	}
 
-	public void setLogoCampeonato(Image logoCampeonato) {
+	public void setLogoCampeonato(String logoCampeonato) {
 		this.logoCampeonato = logoCampeonato;
 	}
 
