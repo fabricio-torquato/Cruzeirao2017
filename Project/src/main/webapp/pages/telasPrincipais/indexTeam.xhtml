@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<link rel="stylesheet" type="text/css" href="../../css/theme.css" />
+<h:outputStylesheet name="grid/grid.css" library="primefaces" />
+<meta charset="UTF-8" />
+
+<f:view locale="#{localeBean.locale}">
+	<h:head>
+		<ul class="bar">
+
+			<li class="dropdown"><a href="index.xhtml">
+					<button class="dropbtn">
+						<p:outputLabel value="Inicio" />
+						<p:commandButton icon="fa fa-home"></p:commandButton>
+					</button>
+			</a></li>
+
+			<li class="dropdown"><a href="indexTeam.xhtml">
+					<button class="dropbtn">
+						<p:outputLabel value="time" />
+						<p:commandButton icon="fa fa-users"></p:commandButton>
+					</button> ]
+			</a></li>
+
+			<li class="dropdown">
+				<button class="dropbtn">
+					<p:outputLabel value="Partidas" />
+					<p:commandButton icon="fa fa-street-view"></p:commandButton>
+				</button>
+			</li>
+
+			<li class="bar">
+				<form>
+					<input value="#{msg['pages.login.login']}"
+						onclick="PF('dlgLogin').show();" class="btnLogin"
+						style="margin-right: 20px; margin-top: 10px;" />
+				</form>
+			</li>
+			<li class="bar">
+				<form action="../cadastroUsuario.xhtml">
+					<input type="submit"
+						value="#{msg['pages.comuns.headerfront.singin']}" class="btnLogin"
+						style="margin-right: 20px; margin-top: 10px;" />
+				</form>
+			</li>
+		</ul>
+	</h:head>
+
+	<h:body style="margin-top:50px;">
+
+		<div class="background"
+			style="width: 100%; height: 150px; text-align: center;">
+			<br /> <br />
+			<h1
+				style="color: #484B4F; font-family: 'Droid serif', serif; font-size: 55px; font-weight: 400; font-style: italic; line-height: 44px; margin: 0 0 12px; text-align: center;">
+				Campeonatos Esportivos de Sorocaba e Região</h1>
+		</div>
+
+		<div style="width: 80%; padding-left: 10%; padding-right: 10%">
+
+			<p:carousel value="1" headerText="Real Madrid" var="car"
+				itemStyle="text-align:center" responsive="true"
+				style="margin-top:20px;">
+
+				<p:panel styleClass="customHeader">
+					<p:graphicImage url="/images/ronaldo_cristiano.png" width="150px" />
+				</p:panel>
+
+				<p:panelGrid columns="2">
+
+					<h:outputText value="#{msg['pages.verJogadores.name']}" />
+					<h:outputText value="Cristiano Ronaldo" />
+
+					<h:outputText value="#{msg['pages.verJogadores.team']}" />
+					<h:outputText value="Real Madrid" />
+
+					<h:outputText value="#{msg['pages.verJogadores.position']}" />
+					<h:outputText value="Attacks" />
+
+					<h:outputText value="#{msg['pages.verJogadores.date']}" />
+					<h:outputText value="5 de fevereiro de 1985" />
+
+				</p:panelGrid>
+				<f:facet name="footer">
+                12 Jogadores no time
+        </f:facet>
+			</p:carousel>
+
+			<p:carousel value="#" headerText="TIME 2" var="car"
+				itemStyle="text-align:center" responsive="true"
+				style="margin-top:20px;">
+
+				<p:panel styleClass="customHeader">
+					<p:graphicImage url="/images/ronaldo_cristiano.png" width="150px" />
+				</p:panel>
+
+				<p:panelGrid columns="2">
+
+					<h:outputText value="#{msg['pages.verJogadores.name']}" />
+					<h:outputText value="Cristiano Ronaldo" />
+
+					<h:outputText value="#{msg['pages.verJogadores.team']}" />
+					<h:outputText value="Real Madrid" />
+
+					<h:outputText value="#{msg['pages.verJogadores.position']}" />
+					<h:outputText value="Attacks" />
+
+					<h:outputText value="#{msg['pages.verJogadores.date']}" />
+					<h:outputText value="5 de fevereiro de 1985" />
+
+				</p:panelGrid>
+
+				<f:facet name="footer">
+                13 Jogadores no time
+        </f:facet>
+			</p:carousel>
+		</div>
+
+
+		<p:dialog widgetVar="dlgLogin" modal="true">
+			<div id="login-box">
+				<H2>Login</H2>
+
+				<div id="login-box-name" style="margin-top: 20px;">
+					<h:outputText value="Email: " />
+				</div>
+				<div id="login-box-field" style="margin-top: 20px;">
+					<input name="q" class="form-login" title="Username" value=""
+						size="30" maxlength="2048" />
+				</div>
+				<div id="login-box-name">
+					<h:outputText value="Senha: " />
+				</div>
+				<div id="login-box-field">
+					<input name="q" type="password" class="form-login" title="Password"
+						value="" size="30" maxlength="2048" />
+				</div>
+				<br /> <br /> <br /> <a href="#"><img
+					src="../../images/login-btn.png" width="103" height="42"
+					style="margin-left: 90px;" /></a>
+			</div>
+		</p:dialog>
+	</h:body>
+</f:view>
+</html>
+
+
