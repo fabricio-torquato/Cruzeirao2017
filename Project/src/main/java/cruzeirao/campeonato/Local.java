@@ -1,18 +1,17 @@
 package cruzeirao.campeonato;
 
-import java.awt.Image;
 
 public class Local {
 	private String nome;
 	private String endereco;
-	private Image logoCampo;
+	private String logoCampo;
 
 	
-	public Image getLogoCampo() {
+	public String getLogoCampo() {
 		return logoCampo;
 	}
 
-	public void setLogoCampo(Image logoCampo) {
+	public void setLogoCampo(String logoCampo) {
 		this.logoCampo = logoCampo;
 	}
 

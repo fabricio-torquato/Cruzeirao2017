@@ -7,7 +7,7 @@ public class Membro {
 	private String rg;
 	private Date nascimento;
 	private String cpf; 
-	private Image fotoMembro;
+	private String fotoMembro;
 
 	public String getCpf() {
 		return cpf;
@@ -15,10 +15,10 @@ public class Membro {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Image getFotoMembro() {
+	public String getFotoMembro() {
 		return fotoMembro;
 	}
-	public void setFotoMembro(Image fotoMembro) {
+	public void setFotoMembro(String fotoMembro) {
 		this.fotoMembro = fotoMembro;
 	}
 	public String getRg() {
