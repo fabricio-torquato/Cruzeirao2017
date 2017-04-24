@@ -1,0 +1,142 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ul class="bar">
+
+		<h:panelGroup>
+			<li class="dropdown">
+
+				<button class="dropbtn">
+					<p:outputLabel value="#{msg['pages.comuns.headerfront.champion']}" />
+					<p:commandButton icon="fa fa-soccer-ball-o"></p:commandButton>
+				</button>
+
+				<div class="dropdown-content">
+					<a href="/Cruzeirao2017/pages/adm/manager/cadastroCampeonato.xhtml"><p:outputLabel
+							value="#{msg['pages.comuns.headerfront.champion.register']}" /></a>
+					<a href="/Cruzeirao2017/pages/adm/manager/cadastroCampeonato.xhtml"><p:outputLabel
+							value="#{msg['pages.comuns.headerfront.champion.register']}" /></a>
+					<a href="/Cruzeirao2017/pages/adm/manager/cadastroCampeonato.xhtml"><p:outputLabel
+							value="#{msg['pages.comuns.headerfront.champion.register']}" /></a>
+				</div>
+			</li>
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<li class="dropdown">
+
+				<button class="dropbtn">
+					<p:outputLabel value="#{msg['pages.comuns.headerfront.category']}" />
+					<p:commandButton icon="fa fa-shield"></p:commandButton>
+				</button>
+
+				<div class="dropdown-content">
+					<a href="/Cruzeirao2017/pages/adm/manager/cadastroCategoria.xhtml"><p:outputLabel
+							value="#{msg['pages.comuns.headerfront.category.register']}" /></a>
+					<a
+						href="/Cruzeirao2017/pages/adm/manager/cadastroCampeonatoCategoria.xhtml"><p:outputLabel
+							value="Categorias do campeonato" /></a> <a
+						href="/Cruzeirao2017/pages/adm/manager/validarCadastroCategoria.xhtml"><p:outputLabel
+							value="Validar Categoria" /></a>
+				</div>
+			</li>
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<li class="dropdown">
+
+				<button class="dropbtn">
+					<p:outputLabel value="#{msg['pages.comuns.headerfront.time']}" />
+					<p:commandButton icon="fa fa-group"></p:commandButton>
+				</button>
+
+				<div class="dropdown-content">
+					<a href="/Cruzeirao2017/pages/adm/manager/coach/cadastroTime.xhtml"><p:outputLabel
+							value="#{msg['pages.comuns.headerfront.time.register']}" /></a> <a
+						href="/Cruzeirao2017/pages/adm/manager/coach/cadastroTimeCategoria.xhtml"><p:outputLabel
+							value="Cadastro categorias do time" /></a> <a
+						href="/Cruzeirao2017/pages/adm/manager/coach/user/verTimes.xhtml"><p:outputLabel
+							value="#{msg['pages.comuns.headerfront.time.overview']}" /></a>
+				</div>
+			</li>
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<li class="dropdown">
+
+				<button class="dropbtn">
+					<p:outputLabel value="#{msg['pages.comuns.headerfront.member']}" />
+					<p:commandButton icon="fa fa-male"></p:commandButton>
+				</button>
+
+				<div class="dropdown-content">
+					<a
+						href="/Cruzeirao2017/pages/adm/manager/coach/user/cadastroMembro.xhtml"><p:outputLabel
+							value="#{msg['pages.comuns.headerfront.member.register']}" /></a> <a
+						href="/Cruzeirao2017/pages/adm/manager/coach/user/verJogadores.xhtml"><p:outputLabel
+							value="#{msg['pages.comuns.headerfront.member.overview']}" /></a> <a
+						href="/Cruzeirao2017/pages/adm/manager/coach/user/cadastroMembro.xhtml"><p:outputLabel
+							value="#{msg['pages.comuns.headerfront.member.register']}" /></a>
+				</div>
+			</li>
+		</h:panelGroup>
+
+		<li class="dropdown">
+
+			<button class="dropbtn">
+				<p:outputLabel value="#{msg['pages.comuns.headerfront.field']}" />
+				<p:commandButton icon="fa fa-shield"></p:commandButton>
+			</button>
+
+			<div class="dropdown-content">
+				<a href="/Cruzeirao2017/pages/adm/manager/cadastroCampo.xhtml"><p:outputLabel
+						value="#{msg['pages.comuns.headerfront.field.register']}" /></a> <a
+					href="/Cruzeirao2017/pages/adm/manager/coach/user/verCampo.xhtml"><p:outputLabel
+						value="#{msg['pages.comuns.headerfront.field.overview']}" /></a> <a
+					href="/Cruzeirao2017/pages/adm/manager/cadastroCampo.xhtml"><p:outputLabel
+						value="#{msg['pages.comuns.headerfront.field.register']}" /></a>
+			</div>
+		</li>
+		<h:panelGroup>
+			<li class="dropdown">
+
+				<button class="dropbtn">
+					<p:outputLabel value="Matches" />
+					<p:commandButton icon="fa fa-sitemap"></p:commandButton>
+				</button>
+
+				<div class="dropdown-content">
+					<a href="/Cruzeirao2017/pages/adm/manager/validarPartida.xhtml"><p:outputLabel
+							value="validar partida" /></a> <a
+						href="/Cruzeirao2017/pages/adm/manager/validarPartida.xhtml"><p:outputLabel
+							value="validar partida" /></a> <a
+						href="/Cruzeirao2017/pages/adm/manager/validarTabelaCampeonato.xhtml"><p:outputLabel
+							value="Validar tabela do campeonato" /></a>
+				</div>
+			</li>
+		</h:panelGroup>
+
+		<li class="bar"><a
+			href="/Cruzeirao2017/pages/adm/manager/coach/user/linguagem.xhtml">
+				<i class="fa fa-bars" />
+		</a></li>
+
+		<li class="bar"><a href="perfil.xhtml"> <p:outputLabel
+					value="Cristiano Ronaldo" />
+		</a></li>
+	</ul>
+
+	<div style="padding-top: 40px;" align="center">
+		<div class="ui-g-2" style="position: relative; left: 40%;">
+			<a
+				href="/Cruzeirao2017/pages/adm/manager/coach/user/noUser/index.xhtml">
+				<p:graphicImage library="sistema" name="imagens/cruzeirao2017.jpg"
+					alt="Campeonato 2017" style="height: 150px;" />
+			</a>
+		</div>
+	</div>
+
+</ui:composition>

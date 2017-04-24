@@ -1,0 +1,40 @@
+<ui:composition template="coach/user/noUser/comuns/template_user.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.cadastroCampo.title']}" />
+	</ui:define>
+
+	<ui:define name="principal">
+		<div class="principal">
+			<div class="container" align="center">
+
+				<h:panelGrid columns="1"
+					style="padding-bottom: 20px; width: 100%;text-align: center;"
+					cellpadding="4">
+
+					<h:outputText value="#{msg['pages.cadastroCampo.name']}" />
+					<p:inputText type="text"
+						placeholder="#{msg['pages.cadastroCampo.placeholder.name']}" />
+
+					<h:outputText value="#{msg['pages.cadastroCampo.address']}" />
+					<p:inputText type="text"
+						placeholder="#{msg['pages.cadastroCampo.placeholder.address']}" />
+
+					<p:outputLabel value="Choice imagem of field" />
+					<p:fileUpload value="#{fileUploadView.file}" mode="simple"
+						skinSimple="true" />
+
+				</h:panelGrid>
+				<p:commandButton value="#{msg['pages.cadastroCampo.save']}"
+					icon="ui-icon-check" />
+				<p:spacer />
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>

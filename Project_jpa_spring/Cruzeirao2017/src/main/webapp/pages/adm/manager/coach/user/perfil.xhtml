@@ -1,0 +1,40 @@
+<ui:composition template="noUser/comuns/template_user.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.login.title']}" />
+	</ui:define>
+
+	<ui:define name="principal">
+		<div class="principal" align="center">
+			<div class="container">
+
+				<p:graphicImage library="sistema"
+					name="/imagens/ronaldo_cristiano.jpeg" width="150px" />
+				<p:panelGrid columns="2"
+					style="margin-bottom:20px;width: 100%; text-align: center;"
+					cellpadding="4">
+
+					<h:outputText value="#{msg['pages.verJogadores.name']}" />
+					<h:outputText value="Cristiano Ronaldo" />
+
+					<h:outputText value="#{msg['pages.verJogadores.team']}" />
+					<h:outputText value="Real Madrid" />
+
+					<h:outputText value="#{msg['pages.verJogadores.position']}" />
+					<h:outputText value="Attacks" />
+
+					<h:outputText value="#{msg['pages.verJogadores.date']}" />
+					<h:outputText value="5 de fevereiro de 1985" />
+
+				</p:panelGrid>
+
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
