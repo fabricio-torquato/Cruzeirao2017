@@ -2,10 +2,10 @@ package sistema.cruzeirao.campeonato;
 
 import java.util.List;
 
-import sistema.cruzeirao.pessoa.Jogador;
+import sistema.cruzeirao.funcao.Jogador;
 
-public class Inscricao {
-	private Time time;
+public class Inscrito {
+	private Equipe equipe;
 	private List<Jogador> jogadores;
 	private int pontos;
 	private Categoria categoria;
@@ -21,12 +21,12 @@ public class Inscricao {
 		this.pagamento = pagamento;
 	}
 
-	public Time getTime() {
-		return time;
+	public Equipe getEquipe() {
+		return equipe;
 	}
 
-	public void setTime(Time time) {
-		this.time = time;
+	public void setEquipe(Equipe equipe) {
+		this.equipe = equipe;
 	}
 
 	public List<Jogador> getJogadores() {

@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		// Libera todos os recursos do JSF
 		http.authorizeRequests().antMatchers("/pages/adm/manager/coach/user/noUser/**", "/resources/**",
-				"/javax.faces.resource/**", "/webapp/resources/**").permitAll();
+				"/javax.faces.resource/**", "/favicon.ico/**", "/webapp/resources/**").permitAll();
 
 		// Controla o acesso a página protegida do user
 		http.authorizeRequests().antMatchers("/pages/adm/manager/coach/user/**").hasAnyRole("USER", "COACH", "MANAGER",
@@ -55,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		// Logout
 		http.logout().logoutUrl("/logout").logoutSuccessUrl("/pages/adm/manager/coach/user/noUser/login.xhtml");
-
+		
 		// Todas as requisições para partes internas da aplicação devem ser
 		// autenticadas
 		http.authorizeRequests().anyRequest().authenticated();

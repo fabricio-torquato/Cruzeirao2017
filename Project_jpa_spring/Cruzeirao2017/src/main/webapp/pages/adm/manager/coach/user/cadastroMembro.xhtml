@@ -12,45 +12,39 @@
 	<ui:define name="principal">
 		<div class="principal" align="center">
 			<div class="container">
-				<form class="form" id="formRegister">
-					<h:panelGrid columns="2" style="margin-bottom:10px;width: 100%;"
-						cellpadding="5">
+				<f:view transient="true">
+					<h:form id="formRegister">
+						<h:panelGrid columns="2" style="margin-bottom:10px;width: 100%;"
+							cellpadding="5">
 
-						<p:outputLabel value="#{msg['pages.cadastroMembro.type']}" />
-						<p:selectCheckboxMenu id="multiple"
-							value="#{checkboxView.selectedCities2}" label="Types of register"
-							multiple="true" filter="true" filterMatchMode="startsWith"
-							panelStyle="width:250px">
-							<f:selectItems value="#{checkboxView.cities}" />
-						</p:selectCheckboxMenu>
+							<p:outputLabel value="#{msg['pages.cadastroMembro.type']}" />
+							<p:selectCheckboxMenu id="multiple"
+								value="#{usuarioManagedBean.usuarioLogado.tipo}"
+								label="Types of register" multiple="true" filter="true"
+								filterMatchMode="startsWith" panelStyle="width:250px">
+								<f:selectItems value="#{usuarioManagedBean.usuarioLogado.tipos}" />
+							</p:selectCheckboxMenu>
 
-						<p:outputLabel value="#{msg['pages.cadastroMembro.rg']}"
-							for="acSimple" />
-						<p:autoComplete id="acSimple"
-							placeholder="#{msg['pages.cadastroMembro.placeholder.document']}"
-							value="#{autoCompleteView.txt1}"
-							completeMethod="#{autoCompleteView.completeText}" />
+							<p:outputLabel value="#{msg['pages.cadastroMembro.rg']}" />
+							<p:inputText type="text"
+								placeholder="#{msg['pages.cadastroMembro.placeholder.document']}"
+								value="#{usuarioManagedBean.usuarioLogado.rg}" />
 
-						<p:outputLabel value="#{msg['pages.cadastroMembro.cpf']}"
-							for="acSimple" />
-						<p:autoComplete id="acSimple"
-							placeholder="#{msg['pages.cadastroMembro.placeholder.document']}"
-							value="#{autoCompleteView.txt1}"
-							completeMethod="#{autoCompleteView.completeText}" />
+							<p:outputLabel value="#{msg['pages.cadastroMembro.cpf']}" />
+							<p:inputText type="text"
+								placeholder="#{msg['pages.cadastroMembro.placeholder.document']}"
+								value="#{usuarioManagedBean.usuarioLogado.cpf}" />
 
-						<p:outputLabel value="Enter you date birth" for="acSimple" />
-						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="Date birth" mask="99/99/9999" />
+							<p:outputLabel value="Cref" />
+							<p:inputText type="text"
+								placeholder="#{msg['pages.cadastroMembro.placeholder.document']}"
+								value="#{usuarioManagedBean.usuarioLogado.cref}" />
 
-						<p:outputLabel value="Choose a picture of you" />
-						<p:fileUpload value="#{fileUploadView.file}" mode="simple"
-							skinSimple="true" />
-
-					</h:panelGrid>
-					<p:commandButton value="#{msg['pages.cadastroMembro.save']}"
-						icon="ui-icon-check" oncomplete="PF('dlg').show()"
-						style="margin:20px"/>
-				</form>
+						</h:panelGrid>
+						<p:commandButton value="#{msg['pages.login.salvar']}"
+							actionListener="#{usuarioManagedBean.atualizar}" ajax="false" />
+					</h:form>
+				</f:view>
 			</div>
 		</div>
 	</ui:define>

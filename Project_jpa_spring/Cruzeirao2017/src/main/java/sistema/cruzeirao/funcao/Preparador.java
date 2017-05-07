@@ -1,17 +1,17 @@
-package sistema.cruzeirao.pessoa;
+package sistema.cruzeirao.funcao;
 
-import sistema.cruzeirao.campeonato.Time;
+import sistema.cruzeirao.campeonato.Equipe;
 
 public class Preparador extends Membro{
 
-	private Time time;
+	private Equipe time;
 	private int crefito;
 	
-	public Time getTime() {
+	public Equipe getTime() {
 		return time;
 	}
 
-	public void setTime(Time time) {
+	public void setTime(Equipe time) {
 		this.time = time;
 	}
 

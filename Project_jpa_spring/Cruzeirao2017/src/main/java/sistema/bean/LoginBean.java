@@ -27,7 +27,6 @@ public class LoginBean implements Serializable{
 		if ("true".equals(request.getParameter("error"))) {
 			msg.exibirErroGrowl("Usuário ou senha inválidos");
 		}
-		
 	}
 	
 	

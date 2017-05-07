@@ -12,63 +12,54 @@
 	<ui:define name="principal">
 		<div class="principal" align="center">
 			<div class="container">
-				<p:panelGrid style="margin-top:20px; ;width: 100%;">
-					<f:facet name="header">
-						<p:row>
-							<p:column colspan="4">
-								<h:outputText value="#{msg['pages.verJogadores.title']}" />
-							</p:column>
-						</p:row>
+				<h:form id="formTabelaMembros">
+					<p:dataTable style="margin-top:20px; ;width: 100%;"
+						value="#{usuarioManagedBean.usuarios}" var="aux"
+						id="tabelaUsuario" editable="true" paginator="true" rows="5"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,15" emptyMessage="nao encotrou neenhum">
 
-						<p:row>
-							<p:column>
-								<h:outputText value="#{msg['pages.verJogadores.name']}" />
-							</p:column>
+						<p:column headerText="#{msg['pages.verJogadores.name']}"
+							filterBy="#{aux.name}">
+							<p:outputLabel value="#{aux.name}" />
+						</p:column>
 
-							<p:column>
-								<h:outputText value="#{msg['pages.verJogadores.team']}" />
-							</p:column>
+						<p:column headerText="RG" filterBy="#{aux.rg}">
+							<p:outputLabel value="#{aux.rg}" />
+						</p:column>
 
-							<p:column>
-								<h:outputText value="#{msg['pages.verJogadores.info']}" />
-							</p:column>
-						</p:row>
-					</f:facet>
-
-					<p:row style="text-align: center;">
-						<p:column>Cristiano Ronaldo</p:column>
-
-						<p:column>Real Madrid</p:column>
+						<p:column headerText="CPF" filterBy="#{aux.cpf}">
+							<p:outputLabel value="#{aux.cpf}" />
+						</p:column>
 
 						<p:column>
 							<p:commandLink value="#{msg['pages.verJogadores.database']}"
-								onclick="PF('dlg').show();" type="button" />
+								onclick="PF('dlg').show();" type="button" >
+							</p:commandLink>
 						</p:column>
-					</p:row>
-				</p:panelGrid>
 
-				<p:dialog header="#{msg['pages.verJogadores.info']}" widgetVar="dlg"
-					dynamic="true">
-					<p:panel styleClass="customHeader">
-						<p:graphicImage url="/images/ronaldo_cristiano.png" width="150px" />
-					</p:panel>
-					<p:panelGrid columns="2">
+					</p:dataTable>
 
-						<h:outputText value="#{msg['pages.verJogadores.name']}" />
-						<h:outputText value="Cristiano Ronaldo" />
+					<p:dialog header="#{msg['pages.verJogadores.info']}"
+						widgetVar="dlg" dynamic="true">
+						<p:panel styleClass="customHeader">
+							<p:graphicImage library="sistema" value="#{aux.image}"
+								width="150px" />
+						</p:panel>
+						<p:panelGrid columns="2">
 
-						<h:outputText value="#{msg['pages.verJogadores.team']}" />
-						<h:outputText value="Real Madrid" />
+							<h:outputText value="#{msg['pages.verJogadores.name']}" />
+							<h:outputText value="#{aux.name}" />
 
-						<h:outputText value="#{msg['pages.verJogadores.position']}" />
-						<h:outputText value="Attacks" />
+							<h:outputText value="RG" />
+							<h:outputText value="#{aux.rg}" />
 
-						<h:outputText value="#{msg['pages.verJogadores.date']}" />
-						<h:outputText value="5 de fevereiro de 1985" />
+							<h:outputText value="CPF" />
+							<h:outputText value="#{aux.cpf}" />
 
-					</p:panelGrid>
-				</p:dialog>
-
+						</p:panelGrid>
+					</p:dialog>
+				</h:form>
 			</div>
 		</div>
 	</ui:define>

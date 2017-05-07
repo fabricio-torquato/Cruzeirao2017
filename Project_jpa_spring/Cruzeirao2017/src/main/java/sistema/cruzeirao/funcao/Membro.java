@@ -1,4 +1,4 @@
-package sistema.cruzeirao.pessoa;
+package sistema.cruzeirao.funcao;
 
 import java.awt.Image;
 import java.util.Date;

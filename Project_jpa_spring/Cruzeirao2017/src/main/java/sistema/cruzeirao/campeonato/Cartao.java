@@ -2,7 +2,7 @@ package sistema.cruzeirao.campeonato;
 
 import java.util.Date;
 
-import sistema.cruzeirao.pessoa.Jogador;
+import sistema.cruzeirao.funcao.Jogador;
 
 public class Cartao {
 	private String CorCartão;

@@ -1,6 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.facens.eubateu</groupId>
 	<artifactId>Cruzeirao2017</artifactId>
@@ -8,17 +7,17 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	<packaging>war</packaging>
 	<name>Cruzeirao2017</name>
 
-<properties>
+	<properties>
 		<eclipselink.version>2.6.2</eclipselink.version>
 		<spring-security.version>4.2.1.RELEASE</spring-security.version>
 		<jstlel.version>1.2.1</jstlel.version>
 		<commons-logging.version>1.2</commons-logging.version>
-	   <cdi-api.version>1.2</cdi-api.version>
-	    <weld.version>2.2.15.Final</weld.version>
+		<cdi-api.version>1.2</cdi-api.version>
+		<weld.version>2.2.15.Final</weld.version>
 	</properties>
-	
-	
-  <build>
+
+
+	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -52,7 +51,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 			<version>10.2.2.0</version>
 		</dependency>
 
-	<!-- JPA EclipseLink -->
+		<!-- JPA EclipseLink -->
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
@@ -65,8 +64,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 			<version>${eclipselink.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
-		
+
+
 		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.apache.taglibs</groupId>
@@ -90,7 +89,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 			<scope>test</scope>
 		</dependency>
 
-<!-- Commons Logging -->
+		<!-- Commons Logging -->
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
@@ -98,7 +97,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 		</dependency>
 
 
-<!-- Implementação CDI - Weld -->
+		<!-- Implementação CDI - Weld -->
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet</artifactId>
@@ -110,9 +109,19 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 			<version>${cdi-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		<!-- Apache Commons Upload -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version> <!-- makesure correct version here -->
+		</dependency>
+	</dependencies>
 
 
-  </dependencies>
-  
-  
 </project>

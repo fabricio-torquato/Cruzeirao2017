@@ -5,8 +5,10 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
 	<persistence-unit name="Cruzeirao2017" transaction-type="RESOURCE_LOCAL">
+	
 		<class>sistema.entidade.Cliente</class>
 		<class>sistema.entidade.Usuario</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes> 
 		<properties>
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:derby://localhost:1527/sample;create=true" />

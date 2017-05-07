@@ -1,10 +1,10 @@
-package sistema.cruzeirao.pessoa;
+package sistema.cruzeirao.funcao;
 
-import sistema.cruzeirao.campeonato.Time;
+import sistema.cruzeirao.campeonato.Equipe;
 
 public class Assistente extends Membro{
 	int cref;
-	Time time;
+	Equipe time;
 	
 	public int getCref() {
 		return cref;
@@ -14,11 +14,11 @@ public class Assistente extends Membro{
 		this.cref = cref;
 	}
 
-	public Time getTime() {
+	public Equipe getTime() {
 		return time;
 	}
 
-	public void setTime(Time time) {
+	public void setTime(Equipe time) {
 		this.time = time;
 	}
 

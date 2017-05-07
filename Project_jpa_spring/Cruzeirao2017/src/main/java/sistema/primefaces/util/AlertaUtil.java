@@ -1,6 +1,8 @@
 package sistema.primefaces.util;
 
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
@@ -10,9 +12,13 @@ import javax.faces.context.FacesContext;
  * 
  */
 
-public class AlertaUtil{
-
+public class AlertaUtil implements Serializable{
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/*
 	 * A mensagem será exibida somente no p:growl global
 	 */
 	protected static final String ID_GROWL = "mensagemGrowl";

@@ -7,7 +7,7 @@ public class Categoria {
 	private int idade_min;
 	private String sexo;
 	private int min_time;
-	private List<Inscricao> times;
+	private List<Inscrito> times;
 	public int getIdade_min() {
 		return idade_min;
 	}
@@ -26,10 +26,10 @@ public class Categoria {
 	public void setMin_time(int min_time) {
 		this.min_time = min_time;
 	}
-	public List<Inscricao> getTimes() {
+	public List<Inscrito> getTimes() {
 		return times;
 	}
-	public void setTimes(List<Inscricao> times) {
+	public void setTimes(List<Inscrito> times) {
 		this.times = times;
 	}
 }

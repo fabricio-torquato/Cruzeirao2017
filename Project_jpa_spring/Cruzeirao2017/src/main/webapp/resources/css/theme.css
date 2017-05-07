@@ -9,11 +9,20 @@ div.background {
 	height: 100%;
 }
 
+.ui-layout-north {
+	z-index: 30 !important;
+	overflow: visible !important;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+}
+
 input.btnLogin {
 	background:
 		url('https://dh3vbjnk0bnfa.cloudfront.net/static/centralauth/images/btn-login.png')
 		no-repeat 5px 5px #484B4F;
-	width: 100px;
+	width: 130px;
 	cursor: pointer;
 	border-radius: 90px;
 	padding: 5px 5px 5px 0;
@@ -34,7 +43,7 @@ input.btnLogin {
 input.btnLogin:hover {
 	background-image:
 		url('https://dh3vbjnk0bnfa.cloudfront.net/static/centralauth/images/btn-login-hover.png');
-	background-position: 65px 5px;
+	background-position: 85px 5px;
 	text-indent: 20px;
 }
 
@@ -190,7 +199,6 @@ div.principal {
 
 .login-box-options {
 	clear: both;
-	padding-left: 87px;
 	font-size: 11px;
 }
 
@@ -304,4 +312,41 @@ right connector from last child*/
 .tree li a:hover+ul li::after, .tree li a:hover+ul li::before, .tree li a:hover+ul::before,
 	.tree li a:hover+ul ul::before {
 	border-color: #94a0b4;
+}
+
+.round {
+	margin: 10px;
+	border-radius: 50%;
+	overflow: hidden;
+	width: 200px;
+	height: 200px;
+	float: left;
+	box-shadow: 3px 3px 5px #555;
+	/* sombra deslocada em 3px para baixo e 3px para direita, borrada em 5px e com cor cinza */
+}
+
+.round div {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-size: cover;
+	/*ajusta a imagem dentro do div, mantendo a proporção da imagem */
+	background-position: center center
+}
+
+.profile-content {
+	padding: 10px 20px;
+	text-align: center;
+	float: right;
+}
+
+.profile-content h1 {
+	font-weight: normal;
+	margin-bottom: 0.2em;
+}
+
+.profile-content p {
+	font-size: 1.0em;
+	line-height: 0.8;
+	color: #ad9f9f;
 }

@@ -1,10 +1,10 @@
-package sistema.cruzeirao.pessoa;
+package sistema.cruzeirao.funcao;
 
-import sistema.cruzeirao.campeonato.Inscricao;
+import sistema.cruzeirao.campeonato.Inscrito;
 
 public class Jogador extends Membro {
 	private boolean participando;
-	private Inscricao time;	
+	private Inscrito time;	
 	
 	public boolean isParticipando() {
 		return participando;
@@ -14,11 +14,11 @@ public class Jogador extends Membro {
 		this.participando = participando;
 	}
 	
-	public Inscricao getTime() {
+	public Inscrito getTime() {
 		return time;
 	}
 	
-	public void setTime(Inscricao time) {
+	public void setTime(Inscrito time) {
 		this.time = time;
 	}
 }

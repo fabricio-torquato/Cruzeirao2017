@@ -4,24 +4,16 @@ import java.util.Date;
 import java.util.List;
 
 public class Jogo {
-	private Inscricao ficha1;
-	private Inscricao ficha2;
+	private Inscrito ficha1;
+	private Inscrito ficha2;
 	private double tempo;
 	private Local local;
 	private Date data;
 	private List<Gol> gols;
 	private List<Cartao> cartoes;
-	public Inscricao getFicha1() {
+	
+	public Inscrito getFicha1() {
 		return ficha1;
-	}
-	public void setFicha1(Inscricao ficha1) {
-		this.ficha1 = ficha1;
-	}
-	public Inscricao getFicha2() {
-		return ficha2;
-	}
-	public void setFicha2(Inscricao ficha2) {
-		this.ficha2 = ficha2;
 	}
 	public double getTempo() {
 		return tempo;
@@ -61,11 +53,14 @@ public class Jogo {
 	{
 		cartoes.add(cartao);
 	}
-	public Jogo(Inscricao ficha1,Inscricao ficha2,Local local,Date dia)
-	{
-		this.ficha1=ficha1;
-		this.ficha2=ficha2;
-		this.local=local;
-		this.data=dia;
+	public Inscrito getFicha2() {
+		return ficha2;
 	}
+	public void setFicha1(Inscrito ficha1) {
+		this.ficha1 = ficha1;
+	}
+	public void setFicha2(Inscrito ficha2) {
+		this.ficha2 = ficha2;
+	}
+	
 }

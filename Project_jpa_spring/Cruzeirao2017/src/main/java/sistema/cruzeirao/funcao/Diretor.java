@@ -1,4 +1,4 @@
-package sistema.cruzeirao.pessoa;
+package sistema.cruzeirao.funcao;
 
 import java.sql.Time;
 import java.util.List;

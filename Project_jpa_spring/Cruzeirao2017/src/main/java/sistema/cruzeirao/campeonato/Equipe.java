@@ -1,17 +1,14 @@
 package sistema.cruzeirao.campeonato;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import sistema.cruzeirao.pessoa.Assistente;
-import sistema.cruzeirao.pessoa.Diretor;
-import sistema.cruzeirao.pessoa.Preparador;
+import sistema.cruzeirao.funcao.*;
 
-public class Time {
+public class Equipe {
 	private Diretor diretor;
 	private Assistente auxiliar;
 	private Preparador preparador;
-	private List<Inscricao> atual;
+	private List<Inscrito> atual;
 	private String nome;
 	
 	
@@ -39,19 +36,7 @@ public class Time {
 	public void setPreparador(Preparador preparador) {
 		this.preparador = preparador;
 	}
-	public List<Inscricao> getAtual() {
+	public List<Inscrito> getAtual() {
 		return atual;
-	}
-	public void setAtual(List<Inscricao> atual) {
-		this.atual = atual;
-	}
-	public void addInscricao(Inscricao inscricao)
-	{
-		atual.add(inscricao);
-	}
-	public Time (Diretor diretor)
-	{
-		this.diretor=diretor;
-		atual = new ArrayList<Inscricao>(); 
 	}
 }

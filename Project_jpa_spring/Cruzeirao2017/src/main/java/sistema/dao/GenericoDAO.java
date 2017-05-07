@@ -8,7 +8,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaQuery;
 
 /**
  * Classe que contem a implementacao pradrao em JPA
@@ -87,10 +86,10 @@ public abstract class GenericoDAO<T> {
 		return em.getReference(classeEntidade, id);
 	}
 
-	public List<?> pesquisarTodos() {
-		CriteriaQuery<Object> cq = em.getCriteriaBuilder().createQuery();
-		cq.select(cq.from(classeEntidade));
-		return em.createQuery(cq).getResultList();
+	@SuppressWarnings("unchecked")
+	public List<T> getAll(Class<T> classe) {
+
+		return getEntityManager().createQuery("select o from " + classe.getSimpleName() + " o").getResultList();
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })

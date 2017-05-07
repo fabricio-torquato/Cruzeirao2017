@@ -1,0 +1,67 @@
+<ui:composition
+	template="manager/coach/user/noUser/comuns/template_user.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">
+		<h:outputText value="Ver usuarios cadastrados" />
+	</ui:define>
+
+	<ui:define name="principal">
+		<div class="principal" align="center">
+			<div class="container">
+				<h:form id="formTabelaUsuario">
+
+					<p:dataTable value="#{usuarioManagedBean.usuarios}" var="aux"
+						id="tabelaUsuario" editable="true" paginator="true" rows="5"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,15" emptyMessage="nao encotrou neenhum">
+
+						<p:ajax event="rowEdit" listener="#{usuarioManagedBean.onRowEdit}"
+							update="tabelaUsuario" />
+
+						<p:column headerText="nome" filterBy="#{aux.name}">
+							<p:outputLabel value="#{aux.name}" />
+						</p:column>
+
+						<p:column headerText="Username" filterBy="#{aux.username}">
+							<p:outputLabel value="#{aux.username}" />
+						</p:column>
+
+						<p:column headerText="Role" filterBy="#{aux.role}">
+
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.role}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:selectOneMenu id="multiple"
+										value="#{aux.role}"
+										label="Types of register" multiple="true" filter="true"
+										filterMatchMode="startsWith" panelStyle="width:250px">
+										<f:selectItems value="#{aux.roles}" />
+									</p:selectOneMenu>
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+						<p:column style="width:70px" headerText="Opcoes">
+
+							<p:rowEditor />
+
+							<p:commandLink id="remover" styleClass="ui-icon ui-icon-trash"
+								style="text-align:center"
+								actionListener="#{usuarioManagedBean.remover(aux)}"
+								update="tabelaUsuario" />
+						</p:column>
+
+					</p:dataTable>
+
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
