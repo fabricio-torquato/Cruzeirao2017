@@ -34,7 +34,8 @@
 
 						<p:column>
 							<p:commandLink value="#{msg['pages.verJogadores.database']}"
-								onclick="PF('dlg').show();" type="button" >
+								oncomplete="PF('dlg').show()" type="button" >
+							<f:setPropertyActionListener value="#{aux}" target="#{usuarioManagedBean.usuario}" />
 							</p:commandLink>
 						</p:column>
 
@@ -43,19 +44,19 @@
 					<p:dialog header="#{msg['pages.verJogadores.info']}"
 						widgetVar="dlg" dynamic="true">
 						<p:panel styleClass="customHeader">
-							<p:graphicImage library="sistema" value="#{aux.image}"
+							<p:graphicImage library="sistema" value="#{usuarioManagedBean.usuario.image}"
 								width="150px" />
 						</p:panel>
-						<p:panelGrid columns="2">
+						<p:panelGrid columns="2" rendered="#{not empty usuarioManagedBean.usuario}">
 
 							<h:outputText value="#{msg['pages.verJogadores.name']}" />
-							<h:outputText value="#{aux.name}" />
+							<h:outputText value="#{usuarioManagedBean.usuario.name}" />
 
 							<h:outputText value="RG" />
-							<h:outputText value="#{aux.rg}" />
+							<h:outputText value="#{usuarioManagedBean.usuario.rg}" />
 
 							<h:outputText value="CPF" />
-							<h:outputText value="#{aux.cpf}" />
+							<h:outputText value="#{usuarioManagedBean.usuario.cpf}" />
 
 						</p:panelGrid>
 					</p:dialog>

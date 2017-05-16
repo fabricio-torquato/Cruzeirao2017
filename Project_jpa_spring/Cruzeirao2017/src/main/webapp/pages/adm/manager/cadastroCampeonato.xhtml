@@ -10,79 +10,156 @@
 	</ui:define>
 
 	<ui:define name="principal">
-		<div class="principal" align="center">
-			<div class="container">
+	
+				<h:form id="formCampeonato">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome: " />
+				<p:inputText value="#{championshipManagedBean.champ.nome}"
+					required="true" />
 
-				<form class="form" action="index.xhtml">
+				<p:outputLabel value="Data Inicio Inscrição: " />
+				<p:inputMask  mask="99/99/9999"
+					value="#{championshipManagedBean.champ.dataInicioInscricao}"
+					required="true">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+					</p:inputMask>
 
-					<h:panelGrid columns="3" style="margin-bottom:10px; width: 100%;"
-						cellpadding="5">
+				<p:outputLabel value="Data Fim Inscrição: " />
+				<p:inputMask mask="99/99/9999"
+					value="#{championshipManagedBean.champ.dataFimFimInscricao}"
+					required="true">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+					</p:inputMask>
+				<p:outputLabel value="Data Inicio Campeonato " />
+				<p:inputMask mask="99/99/9999"
+					value="#{championshipManagedBean.champ.dataInicioCampeonato}"
+					required="true">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+					</p:inputMask>
 
-						<p:outputLabel value="#{msg['pages.cadastroCampeonato.name']}"
-							for="acSimple" />
-						<p:autoComplete id="acSimple"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.name']}"
-							value="#{autoCompleteView.txt1}"
-							completeMethod="#{autoCompleteView.completeText}" />
-						<br />
+				<p:outputLabel value="Data Fim Campeonato " />
+				<p:inputMask mask="99/99/9999" 
+					value="#{championshipManagedBean.champ.dataFimCampeonato}"
+					required="true">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+					</p:inputMask>
 
-						<p:outputLabel
-							value="#{msg['pages.cadastroCampeonato.period.camp']}"
-							for="acSimple" />
-						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.begin']}"
-							mask="99/99/9999" />
-						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.end']}"
-							mask="99/99/9999" />
+				<p:outputLabel value="Valor Inscrição " />
+				<p:inputNumber value="#{championshipManagedBean.champ.valorTaxa}"
+					required="true">
+				</p:inputNumber>
 
-						<p:outputLabel
-							value="#{msg['pages.cadastroCampeonato.period.register']}"
-							for="acSimple" />
-						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.begin']}"
-							mask="99/99/9999" />
-						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.end']}"
-							mask="99/99/9999" />
+			</p:panelGrid>
+			<p:commandButton value="Salvar"
+				action="#{championshipManagedBean.save}"
+				update="formCampeonato :formTableCampeonato:tabelaCampeonato" />
+		</h:form>
+		<br />
+		
+		<h3>
+			<p:outputLabel value="Tabela de Campeonatos" />
+		</h3>
+		<h:form id="formTableCampeonato">
+			<p:dataTable value="#{championshipManagedBean.champs}" var="aux"
+				id="tabelaCampeonato" editable="true">
+				<p:ajax event="rowEdit"
+					listener="#{championshipManagedBean.onRowEdit}"
+					update="tabelaCampeonato" />
+				<p:column headerText="Código" filterBy="#{aux.codigoCampeonato}"
+					style="width:15%">
+					<p:outputLabel value="#{aux.codigoCampeonato}" />
+				</p:column>
+				<p:column headerText="Nome" filterBy="#{aux.nome}">
+					<p:cellEditor>
+						<f:facet name="output">
+							<p:outputLabel value="#{aux.nome}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText id="champNome" value="#{aux.nome}"
+								style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column headerText="Inicio Inscrição"
+					filterBy="#{aux.dataInicioInscricao}">
+					<p:cellEditor>
+						<f:facet name="output">
+							<p:outputLabel value="#{aux.dataInicioInscricao}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputMask mask="99/99/9999" id="champdataInicioInscricao"
+								value="#{aux.dataInicioInscricao}" style="width:100%">
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+								</p:inputMask>
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column headerText="Fim Inscricao"
+					filterBy="#{aux.dataFimFimInscricao}">
+					<p:cellEditor>
+						<f:facet name="output">
+							<p:outputLabel value="#{aux.dataFimFimInscricao}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputMask mask="99/99/9999" id="champdataFimFimInscricao"
+								value="#{aux.dataFimFimInscricao}" style="width:100%" >
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+								</p:inputMask>
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column headerText="Inicio Campeonato"
+					filterBy="#{aux.dataInicioCampeonato}">
+					<p:cellEditor>
+						<f:facet name="output">
+							<p:outputLabel value="#{aux.dataInicioCampeonato}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputMask mask="99/99/9999" id="champdataInicioCampeonato"
+								value="#{aux.dataInicioCampeonato}" style="width:100%" >
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+								</p:inputMask>
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column headerText="Fim Campeonato"
+					filterBy="#{aux.dataFimCampeonato}">
+					<p:cellEditor>
+						<f:facet name="output">
+							<p:outputLabel value="#{aux.dataFimCampeonato}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputMask mask="99/99/9999" id="champFimdataFimCampeonato"
+								value="#{aux.dataFimCampeonato}" style="width:100%" >
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+								</p:inputMask>
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column headerText="Valor Taxa" filterBy="#{aux.valorTaxa}">
+					<p:cellEditor>
+						<f:facet name="output">
+							<p:outputLabel value="#{aux.valorTaxa}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputNumber id="champValor" value="#{aux.valorTaxa}"
+								style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column style="width:70px" headerText="Opções">
+					<p:rowEditor />
+					<p:commandLink id="delete" styleClass="ui-icon ui-icon-trash"
+						style="text-align:center"
+						actionListener="#{championshipManagedBean.delete(aux)}"
+						update="tabelaCampeonato" />
+					<p:commandLink id="Uniões" styleClass="ui-icon ui-icon-info"
+						style="text-align:center"
+						actionListener="#{championshipManagedBean.detailInfo(aux)}"/>	
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	
 
-						<p:outputLabel value="#{msg['pages.cadastroCampeonato.value']}"
-							for="acSimple" />
-						<p:inputNumber id="input1" value="#{inputNumberView.input1}" />
-						<br />
-
-						<p:outputLabel
-							value="#{msg['pages.cadastroCampeonato.amount.mim.player']}"
-							for="acSimple" />
-						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.mim']}"
-							mask="99" />
-						<br />
-
-
-						<p:outputLabel
-							value="#{msg['pages.cadastroCampeonato.amount.max.player']}"
-							for="acSimple" />
-						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.max']}"
-							mask="99" />
-						<br />
-
-						<p:outputLabel value="Choice field locations" />
-						<p:selectCheckboxMenu id="multiple"
-							value="#{checkboxView.selectedCities2}" label="Field player"
-							multiple="true" filter="true" filterMatchMode="startsWith"
-							panelStyle="width:250px">
-							<f:selectItems value="#{checkboxView.cities}" />
-						</p:selectCheckboxMenu>
-						<br />
-						<p:outputLabel value="Choice imagem of championship" />
-						<p:fileUpload value="#{fileUploadView.file}" mode="simple"
-							skinSimple="true" />
-						<br />
-					</h:panelGrid>
-				</form>
-			</div>
-		</div>
 	</ui:define>
 </ui:composition>

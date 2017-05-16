@@ -12,27 +12,80 @@
 	<ui:define name="principal">
 		<div class="principal">
 			<div class="container" align="center">
-
+			<h:form id="formLocal">
 				<h:panelGrid columns="1"
 					style="padding-bottom: 20px; width: 100%;text-align: center;"
 					cellpadding="4">
 
 					<h:outputText value="#{msg['pages.cadastroCampo.name']}" />
-					<p:inputText type="text"
+					<p:inputText type="text" value="#{localManagedBean.local.nome}"
 						placeholder="#{msg['pages.cadastroCampo.placeholder.name']}" />
 
 					<h:outputText value="#{msg['pages.cadastroCampo.address']}" />
-					<p:inputText type="text"
-						placeholder="#{msg['pages.cadastroCampo.placeholder.address']}" />
+					<p:inputText type="text" value="#{localManagedBean.local.endereco}"
+						placeholder="#{msg['pages.cadastroCampo.placeholder.adress']}" />
 
-					<p:outputLabel value="Choice imagem of field" />
-					<p:fileUpload value="#{fileUploadView.file}" mode="simple"
-						skinSimple="true" />
+<!-- 					<p:outputLabel value="Choice imagem of field" /> -->
+<!-- 					<p:fileUpload value="#{fileUploadView.file}" mode="simple" -->
+<!-- 						skinSimple="true" /> -->
 
 				</h:panelGrid>
 				<p:commandButton value="#{msg['pages.cadastroCampo.save']}"
-					icon="ui-icon-check" />
+					icon="ui-icon-check" action="#{localManagedBean.save}"
+				update=":formLocal, :formTableLocal:tabelaLocal" />
+					</h:form>
 				<p:spacer />
+				
+				<br />
+		<h3>
+			<p:outputLabel value="Tabela de Endereços" />
+			
+		</h3>
+		<h:form id="formTableLocal">
+
+			<p:dataTable value="#{localManagedBean.locals}" var="aux"
+				id="tabelaLocal" editable="true">
+
+				<p:ajax event="rowEdit" listener="#{localManagedBean.onRowEdit}"
+					update="tabelaLocal" />
+
+				<p:column headerText="Código" filterBy="#{aux.codigoLocal}" style="width:15%">
+					<p:outputLabel value="#{aux.codigoLocal}" />
+				</p:column>
+
+				<p:column headerText="#{msg['pages.cadastroCampo.name']}" filterBy="#{aux.nome}" >
+					<p:cellEditor>
+						<f:facet name="output" >
+							<p:outputLabel value="#{aux.nome}"  />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText id="localNome" value="#{aux.nome}"
+								style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				
+				<p:column headerText="#{msg['pages.cadastroCampo.adress']}" filterBy="#{aux.endereco}" >
+					<p:cellEditor>
+						<f:facet name="output" >
+							<p:outputLabel value="#{aux.endereco}"  />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText id="localEndereco" value="#{aux.endereco}"
+								style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+
+				<p:column style="width:70px" headerText="Opções">
+					<p:rowEditor />
+					<p:commandLink id="delete" styleClass="ui-icon ui-icon-trash"
+						style="text-align:center"
+						actionListener="#{localManagedBean.delete(aux)}"
+						update="tabelaLocal" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
 			</div>
 		</div>
 	</ui:define>
