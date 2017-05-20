@@ -1,5 +1,7 @@
 package sistema.entidade;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 @Entity
 public class Campeonato implements Serializable{
@@ -36,7 +41,7 @@ public class Campeonato implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date dataFimCampeonato;
 	private double valorTaxa;
-	
+	private byte[] foto;
 	
 	public String getNome() {
 		return nome;
@@ -97,6 +102,17 @@ public class Campeonato implements Serializable{
 	}
 	public void setCodigoCampeonato(int codigoCampeonato) {
 		this.codigoCampeonato = codigoCampeonato;
+	}
+	public byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+	public StreamedContent getImage() throws IOException {
+		// sua regra para carregar os bytes
+		return new DefaultStreamedContent(new ByteArrayInputStream(foto));
 	}
 	@Override
 	public int hashCode() {

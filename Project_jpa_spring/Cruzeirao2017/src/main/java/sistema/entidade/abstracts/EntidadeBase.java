@@ -1,4 +1,4 @@
-package sistema.entidade;
+package sistema.entidade.abstracts;
 
 import java.io.Serializable;
 

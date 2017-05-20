@@ -15,16 +15,14 @@
 				</button>
 
 				<div class="dropdown-content">
-					<a href="/Cruzeirao2017/pages/adm/manager/validarPartida.xhtml"><p:outputLabel
-							value="validar partida" /></a> <a
-						href="/Cruzeirao2017/pages/adm/verUsuarios.xhtml"><p:outputLabel
-							value="Ver Usuarios" /></a> <a
-						href="/Cruzeirao2017/pages/adm/manager/validarTabelaCampeonato.xhtml"><p:outputLabel
-							value="Validar tabela do campeonato" /></a>
+					<a href="/Cruzeirao2017/pages/adm/verUsuarios.xhtml"><p:outputLabel
+							value="Ver Usuarios" /></a>
 				</div>
 			</li>
 		</h:panelGroup>
-
+		
+		
+		
 		<h:panelGroup rendered="#{request.isUserInRole('MANAGER')}">
 			<li class="dropdown">
 
@@ -59,9 +57,7 @@
 					<a href="/Cruzeirao2017/pages/adm/manager/coach/cadastroTime.xhtml"><p:outputLabel
 							value="#{msg['pages.comuns.headerfront.time.register']}" /></a> <a
 						href="/Cruzeirao2017/pages/adm/manager/coach/cadastroTimeCategoria.xhtml"><p:outputLabel
-							value="Cadastro categorias do time" /></a> <a
-						href="/Cruzeirao2017/pages/adm/manager/coach/user/verTimes.xhtml"><p:outputLabel
-							value="#{msg['pages.comuns.headerfront.time.overview']}" /></a>
+							value="Cadastro categorias do time" /></a> 
 				</div>
 			</li>
 		</h:panelGroup>
@@ -77,11 +73,7 @@
 				<div class="dropdown-content">
 					<a
 						href="/Cruzeirao2017/pages/adm/manager/coach/user/cadastroMembro.xhtml"><p:outputLabel
-							value="#{msg['pages.comuns.headerfront.member.register']}" /></a> <a
-						href="/Cruzeirao2017/pages/adm/manager/coach/user/verJogadores.xhtml"><p:outputLabel
-							value="#{msg['pages.comuns.headerfront.member.overview']}" /></a> <a
-						href="/Cruzeirao2017/pages/adm/manager/coach/user/cadastroMembro.xhtml"><p:outputLabel
-							value="#{msg['pages.comuns.headerfront.member.register']}" /></a>
+							value="#{msg['pages.comuns.headerfront.member.register']}" /></a> 
 				</div>
 			</li>
 		</h:panelGroup>
@@ -96,16 +88,12 @@
 
 				<div class="dropdown-content">
 					<a href="/Cruzeirao2017/pages/adm/manager/cadastroCampo.xhtml"><p:outputLabel
-							value="#{msg['pages.comuns.headerfront.field.register']}" /></a> <a
-						href="/Cruzeirao2017/pages/adm/manager/coach/user/verCampo.xhtml"><p:outputLabel
-							value="#{msg['pages.comuns.headerfront.field.overview']}" /></a> <a
-						href="/Cruzeirao2017/pages/adm/manager/cadastroCampo.xhtml"><p:outputLabel
-							value="#{msg['pages.comuns.headerfront.field.register']}" /></a>
+							value="#{msg['pages.comuns.headerfront.field.register']}" /></a> 
 				</div>
 			</li>
 		</h:panelGroup>
-
-		<h:panelGroup rendered="#{request.isUserInRole('USER')}">
+		
+		<h:panelGroup rendered="#{request.isUserInRole('MANAGER')}">
 			<li class="dropdown">
 
 				<button class="dropbtn">
@@ -116,8 +104,6 @@
 				<div class="dropdown-content">
 					<a href="/Cruzeirao2017/pages/adm/manager/validarPartida.xhtml"><p:outputLabel
 							value="validar partida" /></a> <a
-						href="/Cruzeirao2017/pages/adm/verUsuarios.xhtml"><p:outputLabel
-							value="Ver Usuarios" /></a> <a
 						href="/Cruzeirao2017/pages/adm/manager/validarTabelaCampeonato.xhtml"><p:outputLabel
 							value="Validar tabela do campeonato" /></a>
 				</div>
@@ -159,8 +145,8 @@
 
 	<div style="padding-top: 40px;" align="center">
 		<div class="ui-g-2" style="position: relative; left: 40%;">
-				<p:graphicImage library="sistema" name="imagens/cruzeirao2017.jpg"
-					alt="Campeonato 2017" style="height: 150px;" />
+			<p:graphicImage library="sistema" name="imagens/cruzeirao2017.jpg"
+				alt="Campeonato 2017" style="height: 150px;" />
 		</div>
 	</div>
 

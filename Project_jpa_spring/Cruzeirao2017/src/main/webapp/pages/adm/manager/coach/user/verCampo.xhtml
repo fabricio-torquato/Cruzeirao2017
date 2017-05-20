@@ -10,67 +10,57 @@
 	</ui:define>
 
 	<ui:define name="principal">
-		<div class="principal" align="center">
-			<div class="container">
-				<p:panelGrid style="margin-top:20px; width: 100%;">
-					<f:facet name="header">
-						<p:row>
-							<p:column colspan="4">
-								<h:outputText value="#{msg['pages.verCampo.title']}" />
-							</p:column>
-						</p:row>
+		<h:form id="form">
+			<div class="principal" align="center">
+				<div class="container">
+					<p:dataTable var="aux" value="#{localManagedBean.locals}"
+						style="margin-top:20px; width: 100%;">
 
-						<p:row>
-							<p:column>
-								<h:outputText value="#{msg['pages.verCampo.name']}" />
-							</p:column>
+						<p:column headerText="Código" filterBy="#{aux.codigoLocal}"
+							style="width:15%">
+							<p:outputLabel value="#{aux.codigoLocal}" />
+						</p:column>
 
-							<p:column>
-								<h:outputText value="#{msg['pages.verCampo.city']}" />
-							</p:column>
+						<p:column headerText="#{msg['pages.cadastroCampo.name']}"
+							filterBy="#{aux.nome}">
+							<p:outputLabel value="#{aux.nome}" />
+						</p:column>
 
-							<p:column>
-								<h:outputText value="#{msg['pages.verCampo.info']}" />
-							</p:column>
-						</p:row>
-					</f:facet>
-
-					<p:row style="text-align: center;">
-						<p:column>Centro de Integração Comunitário Walter Ribeiro</p:column>
-
-						<p:column>Sorocaba</p:column>
+						<p:column headerText="#{msg['pages.cadastroCampo.adress']}"
+							filterBy="#{aux.endereco}">
+							<p:outputLabel value="#{aux.endereco}" />
+						</p:column>
 
 						<p:column>
-							<p:commandLink value="#{msg['pages.verCampo.database']}"
-								onclick="PF('dlg').show();" type="button" />
+							<p:commandLink value="Mais informações"
+								update=":form:LocalDetail" oncomplete="PF('dlg').show()" type="button">
+								<f:setPropertyActionListener value="#{aux}"
+									target="#{dialogManagedBean.local}" />
+							</p:commandLink>
 						</p:column>
-					</p:row>
-				</p:panelGrid>
+					</p:dataTable>
+				</div>
+			</div>
 
-				<p:dialog header="#{msg['pages.verCampo.info']}" widgetVar="dlg"
-					dynamic="true">
-					<p:panel styleClass="customHeader">
-						<p:graphicImage url="/images/ciq.jpg" width="300px" />
-					</p:panel>
-					<p:panelGrid columns="2">
+			<p:dialog header="Informações do Campo" widgetVar="dlg"
+			 resizable="false" appendTo="@(body)" modal="true">
+				<p:outputPanel id="LocalDetail" style="text-align:center;">
+					<p:panelGrid columns="2" columnClasses="label,value">
+						<f:facet name="header">
+							<p:graphicImage library="sistema"
+								value="#{dialogManagedBean.local.image}" width="150px" />
+						</f:facet>
 
 						<h:outputText value="#{msg['pages.verCampo.name']}" />
-						<h:outputText
-							value="Centro de Integração Comunitário Walter Ribeiro" />
+						<h:outputText value="#{dialogManagedBean.local.nome}" />
 
 						<h:outputText value="#{msg['pages.verCampo.city']}" />
-						<h:outputText value="Sorocaba" />
-
-						<h:outputText value="#{msg['pages.verCampo.address']}" />
-						<h:outputText value="Av. Pereira da Silva, s/n" />
-
-						<h:outputText value="#{msg['pages.verCampo.neighbor']}" />
-						<h:outputText value="Jardim Santa Rosália" />
+						<h:outputText value="#{dialogManagedBean.local.endereco}" />
 
 					</p:panelGrid>
-				</p:dialog>
+				</p:outputPanel>
+			</p:dialog>
 
-			</div>
-		</div>
+		</h:form>
 	</ui:define>
 </ui:composition>

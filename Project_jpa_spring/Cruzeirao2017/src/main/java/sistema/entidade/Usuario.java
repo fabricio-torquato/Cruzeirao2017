@@ -11,7 +11,9 @@ import javax.persistence.*;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
-import sistema.cruzeirao.campeonato.*;
+import sistema.entidade.enums.Genero;
+import sistema.entidade.enums.Roles;
+import sistema.entidade.enums.Tipo;
 
 @Entity
 @NamedQuery(name = "Usuario.pesquisarPorUserName", query = "select u from Usuario u where u.username = :username")
@@ -39,9 +41,9 @@ public class Usuario implements Serializable {
 	private String cpf;
 	private String cref;
 	private Genero genero;
-	private byte[] foto;
 	private Roles role;
-
+	private byte[] foto;
+	
 	public long getId() {
 		return id;
 	}
@@ -187,19 +189,6 @@ public class Usuario implements Serializable {
 	public Genero[] getGeneros() {
 		return Genero.values();
 	}
-
-	public byte[] getFoto() {
-		return foto;
-	}
-
-	public void setFoto(byte[] foto) {
-		this.foto = foto;
-	}
-
-	public StreamedContent getImage() throws IOException {
-		// sua regra para carregar os bytes
-		return new DefaultStreamedContent(new ByteArrayInputStream(foto));
-	}
 	public List<Tipo> getTipo() {
 		return tipo;
 	}
@@ -210,6 +199,18 @@ public class Usuario implements Serializable {
 	public Tipo[] getTipos(){
 		return Tipo.values();
 	}
+	public byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+	public StreamedContent getImage() throws IOException {
+		// sua regra para carregar os bytes
+		return new DefaultStreamedContent(new ByteArrayInputStream(foto));
+	}
+	
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + "]";

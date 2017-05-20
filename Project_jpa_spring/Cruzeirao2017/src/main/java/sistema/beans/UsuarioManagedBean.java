@@ -10,8 +10,8 @@ import org.primefaces.event.RowEditEvent;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import sistema.entidade.Roles;
 import sistema.entidade.Usuario;
+import sistema.entidade.enums.Roles;
 import sistema.service.UsuarioService;
 
 @ManagedBean
@@ -42,11 +42,10 @@ public class UsuarioManagedBean extends UploadManagedBean {
 		this.usuarioLogado = usuarioLogado;
 	}
 
-	public String salvar() {
+	public void salvar() {
 		usuario.setRole(Roles.USER);
 		userService.salvar(usuario);
 		usuario = new Usuario();
-		return "/pages/adm/manager/coach/user/noUser/login.xhtml";
 	}
 
 	public void uploadImage(FileUploadEvent event) {
