@@ -6,71 +6,55 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="title">
-		<h:outputText value="#{msg['pages.verCampo.title']}" />
+		<h:outputText value="#{msg['pages.cadastroCampo.title']}" />
 	</ui:define>
 
 	<ui:define name="principal">
-		<div class="principal" align="center">
-			<div class="container">
-				<p:panelGrid style="margin-top:20px; width: 100%;">
-					<f:facet name="header">
-						<p:row>
-							<p:column colspan="4">
-								<h:outputText value="#{msg['pages.verCampo.title']}" />
-							</p:column>
-						</p:row>
+		<div class="principal">
+			<div class="container" align="center">
+		<h3>
+			<p:outputLabel value="Tabela de Endereços" />
+			
+		</h3>
+		<h:form id="formTableLocal">
 
-						<p:row>
-							<p:column>
-								<h:outputText value="#{msg['pages.verCampo.name']}" />
-							</p:column>
+			<p:dataTable value="#{localManagedBean.locals}" var="aux"
+				id="tabelaLocal" editable="true">
 
-							<p:column>
-								<h:outputText value="#{msg['pages.verCampo.city']}" />
-							</p:column>
+				<p:ajax event="rowEdit" listener="#{localManagedBean.onRowEdit}"
+					update="tabelaLocal" />
 
-							<p:column>
-								<h:outputText value="#{msg['pages.verCampo.info']}" />
-							</p:column>
-						</p:row>
-					</f:facet>
+				<p:column headerText="Código" filterBy="#{aux.codigoLocal}" style="width:15%">
+					<p:outputLabel value="#{aux.codigoLocal}" />
+				</p:column>
 
-					<p:row style="text-align: center;">
-						<p:column>Centro de Integração Comunitário Walter Ribeiro</p:column>
-
-						<p:column>Sorocaba</p:column>
-
-						<p:column>
-							<p:commandLink value="#{msg['pages.verCampo.database']}"
-								onclick="PF('dlg').show();" type="button" />
-						</p:column>
-					</p:row>
-				</p:panelGrid>
-
-				<p:dialog header="#{msg['pages.verCampo.info']}" widgetVar="dlg"
-					dynamic="true">
-					<p:panel styleClass="customHeader">
-						<p:graphicImage url="/images/ciq.jpg" width="300px" />
-					</p:panel>
-					<p:panelGrid columns="2">
-
-						<h:outputText value="#{msg['pages.verCampo.name']}" />
-						<h:outputText
-							value="Centro de Integração Comunitário Walter Ribeiro" />
-
-						<h:outputText value="#{msg['pages.verCampo.city']}" />
-						<h:outputText value="Sorocaba" />
-
-						<h:outputText value="#{msg['pages.verCampo.address']}" />
-						<h:outputText value="Av. Pereira da Silva, s/n" />
-
-						<h:outputText value="#{msg['pages.verCampo.neighbor']}" />
-						<h:outputText value="Jardim Santa Rosália" />
-
-					</p:panelGrid>
-				</p:dialog>
-
+				<p:column headerText="#{msg['pages.cadastroCampo.name']}" filterBy="#{aux.nome}" >
+					<p:cellEditor>
+						<f:facet name="output" >
+							<p:outputLabel value="#{aux.nome}"  />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText id="localNome" value="#{aux.nome}"
+								style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				
+				<p:column headerText="#{msg['pages.cadastroCampo.placeholder.address']}" filterBy="#{aux.endereco}" >
+					<p:cellEditor>
+						<f:facet name="output" >
+							<p:outputLabel value="#{aux.endereco}"  />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText id="localEndereco" value="#{aux.endereco}"
+								style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+			</p:dataTable>
+		</h:form>
 			</div>
 		</div>
 	</ui:define>
+
 </ui:composition>

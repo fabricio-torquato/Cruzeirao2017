@@ -23,7 +23,7 @@
 
 					<h:outputText value="#{msg['pages.cadastroCampo.address']}" />
 					<p:inputText type="text" value="#{localManagedBean.local.endereco}"
-						placeholder="#{msg['pages.cadastroCampo.placeholder.adress']}" />
+						placeholder="#{msg['pages.cadastroCampo.placeholder.address']}" />
 
 <!-- 					<p:outputLabel value="Choice imagem of field" /> -->
 <!-- 					<p:fileUpload value="#{fileUploadView.file}" mode="simple" -->
@@ -65,7 +65,7 @@
 					</p:cellEditor>
 				</p:column>
 				
-				<p:column headerText="#{msg['pages.cadastroCampo.adress']}" filterBy="#{aux.endereco}" >
+				<p:column headerText="#{msg['pages.cadastroCampo.placeholder.address']}" filterBy="#{aux.endereco}" >
 					<p:cellEditor>
 						<f:facet name="output" >
 							<p:outputLabel value="#{aux.endereco}"  />
