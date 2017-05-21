@@ -1,4 +1,4 @@
-package sistema.bean;
+package sistema.beans;
 
 import java.util.List;
 

@@ -1,7 +1,5 @@
 package sistema.dao;
 
-import java.util.List;
-
 import sistema.entidade.Categoria;
 
 

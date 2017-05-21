@@ -1,11 +1,17 @@
 package sistema.entidade;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
+
 
 @Entity
 public class Local implements Serializable {
@@ -16,22 +22,14 @@ public class Local implements Serializable {
 	private int codigoLocal;
 	private String nome;
 	private String endereco;
-	private String urlImage;
-
-	public String getUrlImage() {
-		return urlImage;
-	}
-
+	private byte[] foto;
+	
 	public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public void setUrlImage(String urlImage) {
-		this.urlImage = urlImage;
 	}
 
 	public String getEndereco() {
@@ -49,7 +47,17 @@ public class Local implements Serializable {
 	public void setCodigoLocal(int codigoLocal) {
 		this.codigoLocal = codigoLocal;
 	}
+	public byte[] getFoto() {
+		return foto;
+	}
 
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+	public StreamedContent getImage() throws IOException {
+		// sua regra para carregar os bytes
+		return new DefaultStreamedContent(new ByteArrayInputStream(foto));
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

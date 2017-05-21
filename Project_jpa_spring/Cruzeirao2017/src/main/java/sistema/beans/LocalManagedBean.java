@@ -1,10 +1,11 @@
-package sistema.bean;
+package sistema.beans;
 
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.primefaces.event.FileUploadEvent;
 import org.primefaces.event.RowEditEvent;
 
 import sistema.entidade.Local;
@@ -12,7 +13,7 @@ import sistema.service.LocalService;
 
 @ManagedBean
 @ViewScoped
-public class LocalManagedBean {
+public class LocalManagedBean extends UploadManagedBean {
 	
 	private Local local = new Local();
 	private List<Local> locals;
@@ -51,5 +52,9 @@ public class LocalManagedBean {
 	public void delete(Local a) {
 		service.remove(a);
 		locals.remove(a);
+	}
+	
+	public void uploadImage(FileUploadEvent event) {
+		local.setFoto(handleFileUpload(event));
 	}
 }

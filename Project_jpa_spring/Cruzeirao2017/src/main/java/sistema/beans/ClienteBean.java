@@ -1,4 +1,4 @@
-package sistema.bean;
+package sistema.beans;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;

@@ -10,9 +10,9 @@
 	</ui:define>
 
 	<ui:define name="principal">
-		<div class="principal" align="center">
-			<div class="container">
-				<h:form id="formTabelaMembros">
+		<h:form id="form">
+			<div class="principal" align="center">
+				<div class="container">
 					<p:dataTable style="margin-top:20px; ;width: 100%;"
 						value="#{usuarioManagedBean.usuarios}" var="aux"
 						id="tabelaUsuario" editable="true" paginator="true" rows="5"
@@ -34,34 +34,41 @@
 
 						<p:column>
 							<p:commandLink value="#{msg['pages.verJogadores.database']}"
-								oncomplete="PF('dlg').show()" type="button" >
-							<f:setPropertyActionListener value="#{aux}" target="#{usuarioManagedBean.usuario}" />
+								update=":form:JogadorDetail" oncomplete="PF('dlg').show()" type="button">
+								
+								<f:setPropertyActionListener value="#{aux}"
+									target="#{dialogManagedBean.usuario}" />
+									
 							</p:commandLink>
 						</p:column>
-
+						
 					</p:dataTable>
-
-					<p:dialog header="#{msg['pages.verJogadores.info']}"
-						widgetVar="dlg" dynamic="true">
-						<p:panel styleClass="customHeader">
-							<p:graphicImage library="sistema" value="#{usuarioManagedBean.usuario.image}"
-								width="150px" />
-						</p:panel>
-						<p:panelGrid columns="2" rendered="#{not empty usuarioManagedBean.usuario}">
-
-							<h:outputText value="#{msg['pages.verJogadores.name']}" />
-							<h:outputText value="#{usuarioManagedBean.usuario.name}" />
-
-							<h:outputText value="RG" />
-							<h:outputText value="#{usuarioManagedBean.usuario.rg}" />
-
-							<h:outputText value="CPF" />
-							<h:outputText value="#{usuarioManagedBean.usuario.cpf}" />
-
-						</p:panelGrid>
-					</p:dialog>
-				</h:form>
+				</div>
 			</div>
-		</div>
+			
+			<p:dialog header="#{msg['pages.verJogadores.info']}" widgetVar="dlg"
+				resizable="false" appendTo="@(body)" modal="true">
+				
+				<p:outputPanel id="JogadorDetail" style="text-align:center;">
+				<p:panelGrid columns="2" columnClasses="label,value" align="center" >
+				
+					<f:facet name="header">
+						<p:graphicImage library="sistema"
+							value="#{dialogManagedBean.usuario.image}" width="150px" />
+					</f:facet>
+
+					<h:outputText value="#{msg['pages.verJogadores.name']}" />
+					<h:outputText value="#{dialogManagedBean.usuario.name}" />
+
+					<h:outputText value="RG" />
+					<h:outputText value="#{dialogManagedBean.usuario.rg}" />
+
+					<h:outputText value="CPF" />
+					<h:outputText value="#{dialogManagedBean.usuario.cpf}" />
+
+				</p:panelGrid>
+				</p:outputPanel>
+			</p:dialog>
+		</h:form>
 	</ui:define>
 </ui:composition>

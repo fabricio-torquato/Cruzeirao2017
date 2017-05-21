@@ -25,11 +25,13 @@
 					<p:inputText type="text" value="#{localManagedBean.local.endereco}"
 						placeholder="#{msg['pages.cadastroCampo.placeholder.address']}" />
 
-<!-- 					<p:outputLabel value="Choice imagem of field" /> -->
-<!-- 					<p:fileUpload value="#{fileUploadView.file}" mode="simple" -->
-<!-- 						skinSimple="true" /> -->
-
 				</h:panelGrid>
+				
+				<p:outputLabel value="Choose a picture of you" />
+						
+						<p:fileUpload fileUploadListener="#{localManagedBean.uploadImage}"
+                          showButtons="false" label="Procurar..." auto="true"/>
+				
 				<p:commandButton value="#{msg['pages.cadastroCampo.save']}"
 					icon="ui-icon-check" action="#{localManagedBean.save}"
 				update=":formLocal, :formTableLocal:tabelaLocal" />
@@ -38,7 +40,7 @@
 				
 				<br />
 		<h3>
-			<p:outputLabel value="Tabela de Endereços" />
+			<p:outputLabel value="Tabela de Locais de Jogos" />
 			
 		</h3>
 		<h:form id="formTableLocal">

@@ -1,10 +1,12 @@
-package sistema.bean;
+package sistema.beans;
 
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.event.FlowEvent;
 import org.primefaces.event.RowEditEvent;
 
 import sistema.entidade.Campeonato;
@@ -12,11 +14,12 @@ import sistema.service.ChampionshipService;
 
 @ManagedBean
 @ViewScoped
-public class ChampionshipManagedBean {
+public class ChampionshipManagedBean extends UploadManagedBean{
 
 	private Campeonato champ = new Campeonato();
 	private List<Campeonato> champs;
 	private ChampionshipService service = new ChampionshipService(); 
+	private boolean skip;	
 	
 	public void onRowEdit(RowEditEvent event) {
 
@@ -64,6 +67,18 @@ public class ChampionshipManagedBean {
 	public void setChamps(List<Campeonato> champs) {
 		this.champs = champs;
 	}
-	
-	
+	public void uploadImage(FileUploadEvent event) {
+		champ.setFoto(handleFileUpload(event));
+	}
+	public boolean isSkip() {
+		return skip;
+	}
+
+	public void setSkip(boolean skip) {
+		this.skip = skip;
+	}
+
+	public String onFlowProcess(FlowEvent event) {
+			return event.getNewStep();
+	}
 }

@@ -10,79 +10,40 @@
 	</ui:define>
 
 	<ui:define name="principal">
-		<!-- Colocar Repeat quando estiver guardadndo e carregando Campeonatos -->
-
 		<h:form id="form">
-			<div class="ui-g"
-				style="width: 80%; padding-left: 10%; padding-right: 10%">
+			<p:repeat value="#{championshipManagedBean.champs}" var="aux">
+				<div class="ui-g" style="width: 80%; padding-left: 10%; padding-right: 10%">
 
-				<div class="ui-g-3">
-					<p:graphicImage library="sistema" name="imagens/cruzeirao2017.jpg"
-						alt="Campeonato 2017"
-						style="height: 150px; border-radius: 45px; border: 3px #333 solid" />
-				</div>
+					<div class="ui-g-3">
+						<p:graphicImage library="sistema" name="{aux.image}"
+							style="height: 150px; border-radius: 45px; border: 3px #333 solid" />
+					</div>
 
-				<div class="ui-g-9">
-					<div class="ui-g" style="height: 100%">
-						<div class="ui-g-6">
-							<h:outputText value="Cruzeirão - 2017"
-								style="font-weight: bold; font-size:30px" />
-							<br />
-							<h:outputText value="Descrição:"
-								style="font-weight: bold; font-size:20px" />
-							<br />
-							<h:outputText value="Periodo: 15/01/2017 - 20/04/2017"
-								style="font-weight: bold; font-size:20px" />
-						</div>
-						<div class="ui-g-6">
-							<h:outputText value="Status: Aberto"
-								style="font-weight: bold; font-size:30px" />
-							<br />
-							<h:outputText value="Região: Sorocaba"
-								style="font-weight: bold; font-size:20px" />
-							<br />
-							<p:commandButton icon="ui-icon-calculator" value="Times" />
-							<p:commandButton icon="ui-icon-key" value="Chaves" type="button"
-								onclick="PF('dlgChaveamento').show();" />
+					<div class="ui-g-9">
+						<div class="ui-g" style="height: 100%">
+							<div class="ui-g-6">
+								<h:outputText value="#{aux.nome}"
+									style="font-weight: bold; font-size:30px" />
+								<br />
+								<h:outputText value="Descrição:"
+									style="font-weight: bold; font-size:20px" />
+								<br />
+								<h:outputText value="Periodo: {aux.dataInicioCampeonato}  - {aux.dataFimCampeonato}"
+									style="font-weight: bold; font-size:20px" />
+							</div>
+							<div class="ui-g-6">
+								<h:outputText value="Status: Aberto"
+									style="font-weight: bold; font-size:30px" />
+								<br />
+								<p:commandButton icon="ui-icon-calculator" value="Times" />
+								<p:commandButton icon="ui-icon-key" value="Chaves" type="button"
+									onclick="PF('dlgChaveamento').show();" />
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<hr />
-			<div class="ui-g"
-				style="width: 80%; padding-left: 10%; padding-right: 10%">
-				<div class="ui-g-3">
-					<p:graphicImage library="sistema" name="imagens/cruzeirao2016.png"
-						alt="Campeonato 2016"
-						style="height: 150px; border-radius: 45px; border: 3px #333 solid" />
-				</div>
-				<div class="ui-g-9">
-					<div class="ui-g" style="height: 100%">
-						<div class="ui-g-6">
-							<h:outputText value="Cruzeirão - 2016"
-								style="font-weight: bold; font-size:30px" />
-							<br />
-							<h:outputText value="Descrição:"
-								style="font-weight: bold; font-size:20px" />
-							<br />
-							<h:outputText value="Periodo: 15/01/2016 - 20/04/2016"
-								style="font-weight: bold; font-size:20px" />
-						</div>
-						<div class="ui-g-6">
-							<h:outputText value="Status: Fechado"
-								style="font-weight: bold; font-size:30px" />
-							<br />
-							<h:outputText value="Região: Sorocaba"
-								style="font-weight: bold; font-size:20px" />
-							<br />
-							<p:commandButton icon="ui-icon-calculator" value="Times" />
-							<p:commandButton icon="ui-icon-key" value="Chaves" type="button"
-								onclick="PF('dlgChaveamento').show();" />
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr />
+				<hr />
+			</p:repeat>
 		</h:form>
 
 		<!-- Modal Chaveamento -->
