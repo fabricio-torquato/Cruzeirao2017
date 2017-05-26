@@ -3,11 +3,15 @@ package sistema.entidade;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
@@ -23,6 +27,8 @@ public class Local implements Serializable {
 	private String nome;
 	private String endereco;
 	private byte[] foto;
+	@ManyToMany(mappedBy="locais",fetch=FetchType.EAGER)
+	private List<Campeonato> campeonatos = new ArrayList<>();
 	
 	public String getNome() {
 		return nome;
@@ -47,6 +53,15 @@ public class Local implements Serializable {
 	public void setCodigoLocal(int codigoLocal) {
 		this.codigoLocal = codigoLocal;
 	}
+	
+	public List<Campeonato> getCampeonatos() {
+		return campeonatos;
+	}
+
+	public void setCampeonatos(List<Campeonato> campeonatos) {
+		this.campeonatos = campeonatos;
+	}
+
 	public byte[] getFoto() {
 		return foto;
 	}

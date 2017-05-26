@@ -2,6 +2,7 @@ package sistema.entidade;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Grupo implements Serializable{
 	@ManyToOne
 	private Fase fase;
 	@OneToMany(mappedBy="grupo")
-	private ArrayList<Rodada> rodadas= new ArrayList<Rodada>();
+	private List<Rodada> rodadas= new ArrayList<Rodada>();
 	
 	private int numero;
 	
@@ -39,10 +40,10 @@ public class Grupo implements Serializable{
 	public void setFase(Fase fase) {
 		this.fase = fase;
 	}
-	public ArrayList<Rodada> getRodadas() {
+	public List<Rodada> getRodadas() {
 		return rodadas;
 	}
-	public void setRodadas(ArrayList<Rodada> rodadas) {
+	public void setRodadas(List<Rodada> rodadas) {
 		this.rodadas = rodadas;
 	}
 	public int getNumero() {

@@ -3,6 +3,7 @@ package sistema.entidade;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Equipe implements Serializable{
 	private Date dataFundacao;
 	private String cidade;
 	@ManyToMany
-	private ArrayList<Usuario> diretores= new ArrayList<Usuario>();
+	private List<Usuario> diretores= new ArrayList<Usuario>();
 
 	public String getNome() {
 		return nome;
@@ -44,10 +45,10 @@ public class Equipe implements Serializable{
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-	public ArrayList<Usuario> getDiretores() {
+	public List<Usuario> getDiretores() {
 		return diretores;
 	}
-	public void setDiretores(ArrayList<Usuario> diretores) {
+	public void setDiretores(List<Usuario> diretores) {
 		this.diretores = diretores;
 	}
 	public int getCodigoEquipe() {

@@ -5,11 +5,13 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,23 +19,25 @@ import javax.persistence.TemporalType;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
+import sistema.entidade.Categoria;
+
 @Entity
-public class Campeonato implements Serializable{
+public class Campeonato implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int codigoCampeonato;
-	
+	private int id;
+
 	private String nome;
+	@ManyToMany
+	private List<Local> locais = new ArrayList<Local>();
 	@OneToMany
-	private ArrayList<Local> locais = new ArrayList<Local>();
-	@OneToMany
-	private ArrayList<Juiz> juizes= new ArrayList<Juiz>();
-	@OneToMany(mappedBy="campeonato")
-	private ArrayList<Categoria> categorias= new ArrayList<Categoria>();
+	private List<Juiz> juizes = new ArrayList<Juiz>();
+	@ManyToMany
+	private List<Categoria> categorias = new ArrayList<Categoria>();
 	@Temporal(TemporalType.DATE)
-	private Date  dataInicioInscricao;
+	private Date dataInicioInscricao;
 	@Temporal(TemporalType.DATE)
 	private Date dataFimFimInscricao;
 	@Temporal(TemporalType.DATE)
@@ -42,67 +46,87 @@ public class Campeonato implements Serializable{
 	private Date dataFimCampeonato;
 	private double valorTaxa;
 	private byte[] foto;
-	
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public ArrayList<Local> getLocais() {
+
+	public List<Local> getLocais() {
 		return locais;
 	}
-	public void setLocais(ArrayList<Local> locais) {
+
+	public void setLocais(List<Local> locais) {
 		this.locais = locais;
 	}
-	public ArrayList<Juiz> getJuizes() {
+
+	public List<Juiz> getJuizes() {
 		return juizes;
 	}
-	public void setJuizes(ArrayList<Juiz> juizes) {
+
+	public void setJuizes(List<Juiz> juizes) {
 		this.juizes = juizes;
 	}
-	public ArrayList<Categoria> getCategorias() {
+
+	public List<Categoria> getCategorias() {
 		return categorias;
 	}
-	public void setCategorias(ArrayList<Categoria> categorias) {
+
+	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
+
 	public Date getDataInicioInscricao() {
 		return dataInicioInscricao;
 	}
+
 	public void setDataInicioInscricao(Date dataInicioInscricao) {
 		this.dataInicioInscricao = dataInicioInscricao;
 	}
+
 	public Date getDataFimFimInscricao() {
 		return dataFimFimInscricao;
 	}
+
 	public void setDataFimFimInscricao(Date dataFimFimInscricao) {
 		this.dataFimFimInscricao = dataFimFimInscricao;
 	}
+
 	public Date getDataInicioCampeonato() {
 		return dataInicioCampeonato;
 	}
+
 	public void setDataInicioCampeonato(Date dataInicioCampeonato) {
 		this.dataInicioCampeonato = dataInicioCampeonato;
 	}
+
 	public Date getDataFimCampeonato() {
 		return dataFimCampeonato;
 	}
+
 	public void setDataFimCampeonato(Date dataFimCampeonato) {
 		this.dataFimCampeonato = dataFimCampeonato;
 	}
+
 	public double getValorTaxa() {
 		return valorTaxa;
 	}
+
 	public void setValorTaxa(double valorTaxa) {
 		this.valorTaxa = valorTaxa;
 	}
-	public int getCodigoCampeonato() {
-		return codigoCampeonato;
+
+	public int getId() {
+		return id;
 	}
-	public void setCodigoCampeonato(int codigoCampeonato) {
-		this.codigoCampeonato = codigoCampeonato;
+
+	public void setId(int id) {
+		this.id = id;
 	}
+
 	public byte[] getFoto() {
 		return foto;
 	}
@@ -110,18 +134,20 @@ public class Campeonato implements Serializable{
 	public void setFoto(byte[] foto) {
 		this.foto = foto;
 	}
+
 	public StreamedContent getImage() throws IOException {
 		// sua regra para carregar os bytes
 		return new DefaultStreamedContent(new ByteArrayInputStream(foto));
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + codigoCampeonato;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -131,9 +157,9 @@ public class Campeonato implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Campeonato other = (Campeonato) obj;
-		if (codigoCampeonato != other.codigoCampeonato)
+		if (id != other.id)
 			return false;
 		return true;
-	}	
-	
+	}
+
 }

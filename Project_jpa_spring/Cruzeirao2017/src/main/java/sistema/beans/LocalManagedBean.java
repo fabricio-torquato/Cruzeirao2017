@@ -16,7 +16,7 @@ import sistema.service.LocalService;
 public class LocalManagedBean extends UploadManagedBean {
 	
 	private Local local = new Local();
-	private List<Local> locals;
+	private List<Local> locals = null;
 	private LocalService service = new LocalService();
 
 	//Edição de um Local na tabela

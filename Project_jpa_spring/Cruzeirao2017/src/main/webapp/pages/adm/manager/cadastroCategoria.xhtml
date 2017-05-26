@@ -12,54 +12,125 @@
 	<ui:define name="principal">
 		<div class="principal" align="center">
 			<div class="container">
-				<form class="form" action="index.xhtml">
-					<h:panelGrid columns="2" style="margin-bottom:10px;width: 100%;"
-						cellpadding="5">
+				<f:view transient="true">
+					<h:form class="form">
+						<h:panelGrid columns="2" style="margin-bottom:10px;width: 100%;"
+							cellpadding="5">
 
-						<p:outputLabel value="#{msg['pages.cadastroCategoria.name']}"
-							for="acSimple" />
-						<p:autoComplete id="acSimple"
-							placeholder="#{msg['pages.cadastroCategoria.placeholder.name']}"
-							value="#{autoCompleteView.txt1}"
-							completeMethod="#{autoCompleteView.completeText}" />
+							<p:outputLabel value="#{msg['pages.cadastroCategoria.name']}" />
+							<p:inputText value="#{categoryManagedBean.category.nome}"
+								required="true" />
 
-						<p:outputLabel value="#{msg['pages.cadastroCategoria.minage']}"
-							for="acSimple" />
-						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCategoria.placeholder.year']}"
-							mask="9999" />
+							<p:outputLabel value="#{msg['pages.cadastroCategoria.minage']}" />
+							<p:inputMask
+								value="#{categoryManagedBean.category.nascidosApartirDe}"
+								placeholder="#{msg['pages.cadastroCategoria.placeholder.year']}"
+								mask="9999" required="true">
+							</p:inputMask>
 
-						<p:outputLabel value="#{msg['pages.cadastroCategoria.genre']}"
-							for="acSimple" />
-						<p:selectOneRadio id="console" value="#{radioView.console}">
-							<f:selectItem
-								itemLabel="#{msg['pages.cadastroCategoria.genre.male']}"
-								itemValue="male" />
-							<f:selectItem
-								itemLabel="#{msg['pages.cadastroCategoria.genre.fem']}"
-								itemValue="fem" />
-						</p:selectOneRadio>
+							<p:outputLabel value="Genero" />
+							<p:selectOneMenu id="multiple"
+								value="#{categoryManagedBean.category.genero}"
+								label="Types of register" multiple="true" filter="true"
+								filterMatchMode="startsWith" panelStyle="width:250px">
+								<f:selectItems value="#{categoryManagedBean.category.generos}" />
+							</p:selectOneMenu>
 
-						<p:outputLabel value="#{msg['pages.cadastroCategoria.newplayer']}"
-							for="acSimple" />
-						<p:inputSwitch value="#{selectBooleanView.value1}" />
+							<p:outputLabel
+								value="#{msg['pages.cadastroCampeonato.amount.mim.team']}" />
+							<p:inputMask value="#{categoryManagedBean.category.minJogadores}"
+								placeholder="#{msg['pages.cadastroCampeonato.placeholder.max']}"
+								mask="99" />
 
-						<p:outputLabel value="#{msg['pages.cadastroCategoria.newteam']}"
-							for="acSimple" />
-						<p:inputSwitch value="#{selectBooleanView.value1}" />
+						</h:panelGrid>
 
-						<p:outputLabel
-							value="#{msg['pages.cadastroCampeonato.amount.mim.team']}"
-							for="acSimple" />
-						<p:inputMask id="date" value="#{maskView.date}"
-							placeholder="#{msg['pages.cadastroCampeonato.placeholder.max']}"
-							mask="99" />
+						<p:commandButton value="#{msg['pages.login.salvar']}"
+							actionListener="#{categoryManagedBean.salvar}" ajax="false" />
 
-					</h:panelGrid>
-					<p:commandButton value="#{msg['pages.cadastroCategoria.save']}"
-						icon="ui-icon-check" oncomplete="PF('dlg').show()"
-						style="margin:20px" />
-				</form>
+					</h:form>
+				</f:view>
+				<p:spacer />
+
+				<br />
+
+				<h3>
+					<p:outputLabel value="Tabela de Categorias" />
+				</h3>
+				<h:form id="formTableCategorias">
+					<p:dataTable value="#{categoryManagedBean.categorys}" var="aux"
+						id="tabelaCategoria" editable="true">
+
+						<p:ajax event="rowEdit"
+							listener="#{categoryManagedBean.onRowEdit}"
+							update="tabelaCategoria" />
+
+						<p:column headerText="Nome" filterBy="#{aux.nome}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.nome}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputText id="categoryNome" value="#{aux.nome}"
+										style="width:100%" />
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+						<p:column headerText="Ano valido para participação"
+							filterBy="#{aux.nascidosApartirDe}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.nascidosApartirDe}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputMask mask="9999" id="nascidosApartirDe"
+										value="#{aux.nascidosApartirDe}" style="width:100%">
+									</p:inputMask>
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+						<p:column headerText="Genero" filterBy="#{aux.genero}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.genero}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:selectOneMenu id="multiple" value="#{aux.genero}"
+										label="Types of register" multiple="true" filter="true"
+										filterMatchMode="startsWith" panelStyle="width:250px">
+										<f:selectItems value="#{aux.generos}" />
+									</p:selectOneMenu>
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+						<p:column
+							headerText="#{msg['pages.cadastroCampeonato.amount.mim.team']}"
+							filterBy="#{aux.minJogadores}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.minJogadores}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputMask
+										value="#{aux.minJogadores}"
+										placeholder="#{msg['pages.cadastroCampeonato.amount.mim.team']}"
+										mask="99" />
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+						<p:column style="width:70px" headerText="Opções">
+							<p:rowEditor />
+							<p:commandLink id="delete" styleClass="ui-icon ui-icon-trash"
+								style="text-align:center"
+								actionListener="#{categoryManagedBean.delete(aux)}"
+								update="tabelaCategoria" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+
 			</div>
 		</div>
 	</ui:define>

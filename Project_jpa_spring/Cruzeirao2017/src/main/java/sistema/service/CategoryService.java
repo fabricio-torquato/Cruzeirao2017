@@ -29,7 +29,7 @@ public class CategoryService {
 	}
 	public void remove(Categoria category)
 	{
-		category = categoryDAO.getById(Categoria.class, category.getCodigoCategoria());
+		category = categoryDAO.getById(Categoria.class, category.getId());
 		categoryDAO.remover(category);
 		categoryDAO.closeEntityManager();
 	}
