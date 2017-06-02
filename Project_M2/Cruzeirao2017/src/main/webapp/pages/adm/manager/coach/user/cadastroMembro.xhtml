@@ -1,0 +1,55 @@
+<ui:composition template="noUser/comuns/template_user.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.cadastroMembro.title']}" />
+	</ui:define>
+
+	<ui:define name="principal">
+		<div class="principal" align="center">
+			<div class="container">
+				<f:view transient="true">
+					<h:form id="formRegister">
+						<p:panelGrid columns="2" columnClasses="label, value" style="margin:50px;">
+
+							<p:outputLabel value="#{msg['pages.cadastroMembro.type']}" />
+							<p:selectCheckboxMenu id="multiple"
+								value="#{usuarioManagedBean.usuarioLogado.tipo}"
+								label="Types of register" multiple="true" filter="true"
+								filterMatchMode="startsWith" panelStyle="width:250px">
+								<f:selectItems value="#{usuarioManagedBean.usuarioLogado.tipos}" />
+							</p:selectCheckboxMenu>
+
+							<p:outputLabel value="#{msg['pages.cadastroMembro.rg']}" />
+							<p:inputText type="text"
+								placeholder="#{msg['pages.cadastroMembro.placeholder.document']}"
+								value="#{usuarioManagedBean.usuarioLogado.rg}" />
+
+							<p:outputLabel value="#{msg['pages.cadastroMembro.cpf']}" />
+							<p:inputText type="text"
+								placeholder="#{msg['pages.cadastroMembro.placeholder.document']}"
+								value="#{usuarioManagedBean.usuarioLogado.cpf}" />
+
+							<p:outputLabel value="Cref" />
+							<p:inputText type="text"
+								placeholder="#{msg['pages.cadastroMembro.placeholder.document']}"
+								value="#{usuarioManagedBean.usuarioLogado.cref}" />
+
+						</p:panelGrid>
+						
+						<p:commandLink actionListener="#{usuarioManagedBean.atualizar}" ajax="false"
+							style="width: 50%; max-width: 200px;">
+							<p:graphicImage library="sistema" name="imagens/save.png"
+								alt="Login" width="103" height="42" style="margin-left: 90px;" />
+						</p:commandLink>
+					
+					</h:form>
+				</f:view>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

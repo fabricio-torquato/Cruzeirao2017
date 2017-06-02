@@ -1,0 +1,139 @@
+<ui:composition template="coach/user/noUser/comuns/template_user.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.cadastroCategoria.title']}" />
+	</ui:define>
+
+	<ui:define name="principal">
+		<div class="principal" align="center">
+			<div class="container">
+				<f:view transient="true">
+					<h:form class="form">
+						<p:panelGrid columns="2" columnClasses="label, value" style="margin:50px;">
+
+							<p:outputLabel value="#{msg['pages.cadastroCategoria.name']}" />
+							<p:inputText value="#{categoryManagedBean.category.nome}"
+								required="true" />
+
+							<p:outputLabel value="#{msg['pages.cadastroCategoria.minage']}" />
+							<p:inputMask
+								value="#{categoryManagedBean.category.nascidosApartirDe}"
+								placeholder="#{msg['pages.cadastroCategoria.placeholder.year']}"
+								mask="9999" required="true">
+							</p:inputMask>
+
+							<p:outputLabel value="Genero" />
+							<p:selectOneMenu id="multiple"
+								value="#{categoryManagedBean.category.genero}"
+								label="Types of register" multiple="true" filter="true"
+								filterMatchMode="startsWith" panelStyle="width:250px">
+								<f:selectItems value="#{categoryManagedBean.category.generos}" />
+							</p:selectOneMenu>
+
+							<p:outputLabel
+								value="#{msg['pages.cadastroCampeonato.amount.mim.team']}" />
+							<p:inputMask value="#{categoryManagedBean.category.minJogadores}"
+								placeholder="#{msg['pages.cadastroCampeonato.placeholder.max']}"
+								mask="99" />
+
+						</p:panelGrid>
+						<br/>
+						
+						<p:commandLink actionListener="#{categoryManagedBean.salvar}" ajax="false"
+							style="width: 50%; max-width: 200px;">
+							<p:graphicImage library="sistema" name="imagens/save.png"
+								alt="Login" width="103" height="42" style="margin-left: 90px;" />
+						</p:commandLink>
+
+					</h:form>
+				</f:view>
+				<p:spacer />
+
+				<br />
+
+				<h3>
+					<p:outputLabel value="Tabela de Categorias" />
+				</h3>
+				<h:form id="formTableCategorias">
+					<p:dataTable value="#{categoryManagedBean.categorys}" var="aux"
+						id="tabelaCategoria" editable="true">
+
+						<p:ajax event="rowEdit"
+							listener="#{categoryManagedBean.onRowEdit}"
+							update="tabelaCategoria" />
+
+						<p:column headerText="Nome" filterBy="#{aux.nome}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.nome}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputText id="categoryNome" value="#{aux.nome}"
+										style="width:100%" />
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+						<p:column headerText="Ano valido para participação"
+							filterBy="#{aux.nascidosApartirDe}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.nascidosApartirDe}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputMask mask="9999" id="nascidosApartirDe"
+										value="#{aux.nascidosApartirDe}" style="width:100%">
+									</p:inputMask>
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+						<p:column headerText="Genero" filterBy="#{aux.genero}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.genero}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:selectOneMenu id="multiple" value="#{aux.genero}"
+										label="Types of register" multiple="true" filter="true"
+										filterMatchMode="startsWith" panelStyle="width:250px">
+										<f:selectItems value="#{aux.generos}" />
+									</p:selectOneMenu>
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+						<p:column
+							headerText="#{msg['pages.cadastroCampeonato.amount.mim.team']}"
+							filterBy="#{aux.minJogadores}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.minJogadores}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputMask value="#{aux.minJogadores}"
+										placeholder="#{msg['pages.cadastroCampeonato.amount.mim.team']}"
+										mask="99" />
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+						<p:column style="width:70px" headerText="Opções">
+							<p:rowEditor />
+							<p:commandLink id="delete" styleClass="ui-icon ui-icon-trash"
+								style="text-align:center"
+								actionListener="#{categoryManagedBean.delete(aux)}"
+								update="tabelaCategoria" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
