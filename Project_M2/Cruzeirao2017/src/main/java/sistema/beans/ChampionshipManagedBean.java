@@ -33,11 +33,11 @@ public class ChampionshipManagedBean extends UploadManagedBean implements Serial
 		serviceChamp.update(a);
 	}
 
-	public void salvar() {/*
+	public void salvar() {
 		for(Categoria categoria : champ.getCategorias())
 			categoria.getCampeonatos().add(champ);
 		for(Local local : champ.getLocais())
-			local.getCampeonatos().add(champ);*/
+			local.getCampeonatos().add(champ);
 		champ = serviceChamp.save(champ);
 		champ = new Campeonato();
 	}

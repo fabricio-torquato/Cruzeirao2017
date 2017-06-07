@@ -18,48 +18,49 @@
 					<p:panelGrid columns="2" columnClasses="label, value"
 						style="margin:50px;">
 
-						<p:outputLabel value="Nome: " />
+						<p:outputLabel value="#{msg['pages.cadastroCampeonato.name']}" />
 						<p:inputText value="#{championshipManagedBean.champ.nome}"
 							required="true" />
 
-						<p:outputLabel value="Data Inicio Inscrição: " />
+						<p:outputLabel value="#{msg['pages.cadastroCampeonato.register.begin']}"/>
 						<p:inputMask mask="99/99/9999"
 							value="#{championshipManagedBean.champ.dataInicioInscricao}"
 							required="true">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</p:inputMask>
 
-						<p:outputLabel value="Data Fim Inscrição: " />
+						<p:outputLabel value="#{msg['pages.cadastroCampeonato.register.end']}" />
 						<p:inputMask mask="99/99/9999"
 							value="#{championshipManagedBean.champ.dataFimFimInscricao}"
 							required="true">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</p:inputMask>
 
-						<p:outputLabel value="Data Inicio Campeonato " />
+						<p:outputLabel value="#{msg['pages.cadastroCampeonato.placeholder.begin']}"/>
 						<p:inputMask mask="99/99/9999"
 							value="#{championshipManagedBean.champ.dataInicioCampeonato}"
 							required="true">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</p:inputMask>
 
-						<p:outputLabel value="Data Fim Campeonato " />
+						<p:outputLabel value="#{msg['pages.cadastroCampeonato.placeholder.end']}" />
 						<p:inputMask mask="99/99/9999"
 							value="#{championshipManagedBean.champ.dataFimCampeonato}"
 							required="true">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</p:inputMask>
 
-						<p:outputLabel value="Valor Inscrição " />
+						<p:outputLabel  value="#{msg['pages.cadastroCampeonato.value']}"  />
 						<p:inputNumber value="#{championshipManagedBean.champ.valorTaxa}"
 							required="true">
 						</p:inputNumber>
 
-						<p:outputLabel value="Escolha o logo do campeonato " />
+						<p:outputLabel value="#{msg['pages.cadastroCampeonato.image']}" />
 						<p:fileUpload
 							fileUploadListener="#{championshipManagedBean.uploadImage}"
 							showButtons="false" label="Procurar" auto="true" />
-
+							
+<!--  Erro no adicionar
 						<p:outputLabel
 							value="#{msg['pages.cadastroCampeonatoCategoria.category']}" />
 						<p:selectCheckboxMenu id="novoCategoria"
@@ -72,7 +73,7 @@
 								itemLabel="#{checkbox.nome}" itemValue="#{checkbox}" />
 						</p:selectCheckboxMenu>
 
-						<p:outputLabel value="Escolha os locais" />
+						<p:outputLabel value="#{msg['pages.cadastroCampeonato.field']}" />
 						<p:selectCheckboxMenu id="novoLocal" converter="#{converterLocal}"
 							value="#{championshipManagedBean.champ.locais}"
 							label="Types of register" multiple="true" filter="true"
@@ -81,6 +82,7 @@
 								value="#{championshipManagedBean.locais}"
 								itemLabel="#{checkbox.nome}" itemValue="#{checkbox}" />
 						</p:selectCheckboxMenu>
+-->
 					</p:panelGrid>
 
 					<p:commandLink

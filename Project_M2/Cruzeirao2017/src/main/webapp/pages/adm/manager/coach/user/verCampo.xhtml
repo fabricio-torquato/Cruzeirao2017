@@ -10,51 +10,84 @@
 	</ui:define>
 
 	<ui:define name="principal">
-		<div class="principal">
-			<div class="container" align="center">
-		<h3>
-			<p:outputLabel value="Tabela de Endereços" />
-			
-		</h3>
 		<h:form id="formTableLocal">
+			<div class="principal">
+				<div class="container" align="center">
+					<h3>
+						<p:outputLabel value="Tabela de Endereços" />
 
-			<p:dataTable value="#{localManagedBean.locals}" var="aux"
-				id="tabelaLocal" editable="true">
+					</h3>
 
-				<p:ajax event="rowEdit" listener="#{localManagedBean.onRowEdit}"
-					update="tabelaLocal" />
 
-				<p:column headerText="Código" filterBy="#{aux.codigoLocal}" style="width:15%">
-					<p:outputLabel value="#{aux.codigoLocal}" />
-				</p:column>
+					<p:dataTable value="#{localManagedBean.locals}" var="aux"
+						id="tabelaLocal" editable="true">
 
-				<p:column headerText="#{msg['pages.cadastroCampo.name']}" filterBy="#{aux.nome}" >
-					<p:cellEditor>
-						<f:facet name="output" >
-							<p:outputLabel value="#{aux.nome}"  />
-						</f:facet>
-						<f:facet name="input">
-							<p:inputText id="localNome" value="#{aux.nome}"
-								style="width:100%" />
-						</f:facet>
-					</p:cellEditor>
-				</p:column>
-				
-				<p:column headerText="#{msg['pages.cadastroCampo.placeholder.address']}" filterBy="#{aux.endereco}" >
-					<p:cellEditor>
-						<f:facet name="output" >
-							<p:outputLabel value="#{aux.endereco}"  />
-						</f:facet>
-						<f:facet name="input">
-							<p:inputText id="localEndereco" value="#{aux.endereco}"
-								style="width:100%" />
-						</f:facet>
-					</p:cellEditor>
-				</p:column>
-			</p:dataTable>
-		</h:form>
+						<p:ajax event="rowEdit" listener="#{localManagedBean.onRowEdit}"
+							update="tabelaLocal" />
+
+						<p:column headerText="#{msg['pages.cadastroCampo.name']}"
+							filterBy="#{aux.nome}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.nome}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputText id="localNome" value="#{aux.nome}"
+										style="width:100%" />
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+						<p:column
+							headerText="#{msg['pages.cadastroCampo.placeholder.address']}"
+							filterBy="#{aux.endereco}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.endereco}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputText id="localEndereco" value="#{aux.endereco}"
+										style="width:100%" />
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+						
+						<p:column headerText="#{msg['pages.verCampo.info']}">
+							<p:commandLink value="#{msg['pages.verCampo.database']}"
+								update=":formTableLocal:FieldDetail" oncomplete="PF('dlg').show()" type="button">
+								
+								<f:setPropertyActionListener value="#{aux}"
+									target="#{dialogManagedBean.local}" />
+									
+							</p:commandLink>
+						</p:column>
+						
+					</p:dataTable>
+				</div>
 			</div>
-		</div>
+			
+			<p:dialog header="#{msg['pages.verCampo.info']}" widgetVar="dlg"
+				resizable="false" appendTo="@(body)" modal="true">
+
+				<p:outputPanel id="FieldDetail" style="text-align:center;">
+					<p:panelGrid columns="2" columnClasses="label,value" align="center">
+
+						<f:facet name="header">
+							<p:graphicImage library="sistema"
+								value="#{dialogManagedBean.local.image}" width="150px" />
+						</f:facet>
+
+						<h:outputText value="#{msg['pages.verCampo.name']}" />
+						<h:outputText value="#{dialogManagedBean.local.nome}" />
+
+						<h:outputText value="#{msg['pages.verCampo.address']}"/>
+						<h:outputText value="#{dialogManagedBean.local.endereco}" />
+
+					</p:panelGrid>
+				</p:outputPanel>
+			</p:dialog>
+			
+		</h:form>
 	</ui:define>
 
 </ui:composition>

@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.persistence.JoinColumn;
 
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
@@ -25,10 +24,7 @@ public class Campeonato extends AbstractEntity{
 	private List<Local> locais = new ArrayList<Local>();
 	@OneToMany
 	private List<Juiz> juizes = new ArrayList<Juiz>();
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "campeonato_categoria", 
-	joinColumns = {	@JoinColumn(name = "campeonato_id") }, 
-	inverseJoinColumns = { @JoinColumn(name = "categoria_id") })
+	@ManyToMany
 	private List<Categoria> categorias = new ArrayList<Categoria>();
 	@Temporal(TemporalType.DATE)
 	private Date dataInicioInscricao;

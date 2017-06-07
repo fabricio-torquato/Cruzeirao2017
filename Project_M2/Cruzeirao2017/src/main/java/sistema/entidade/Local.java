@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 
 import org.primefaces.model.DefaultStreamedContent;
@@ -22,7 +21,7 @@ public class Local extends AbstractEntity {
 	private String nome;
 	private String endereco;
 	private byte[] foto;
-	@ManyToMany(mappedBy="locais",fetch=FetchType.EAGER)
+	@ManyToMany(mappedBy="locais")
 	private List<Campeonato> campeonatos = new ArrayList<>();
 	
 	public String getNome() {
