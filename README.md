@@ -1,5 +1,13 @@
-# Projeto Poo2 - Cruzeirão 2017
-Caio Santos Pedroso - 150456<br/>
-Fabricio Torquato - 153124<br/>
-Lucas de Oliveira Dutra - 152728<br/>
-Luiz Roberto Silva - 152563<br/>
+# Sports website study project - Cruzeirão 2017
+=========================
+Spring Security<br/>
+PrimeFaces<br/>
+Java Persistence API (JPA)<br/>
+Contexts and Dependency Injection (CDI)<br/>
+JavaServer Faces with CRUD<br/>
+GenericDAO<br/>
+=========================
+Caio Santos Pedroso<br/>
+Fabricio Torquato<br/>
+Lucas de Oliveira Dutra<br/>
+Luiz Roberto Silva<br/>
